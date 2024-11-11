@@ -1,11 +1,22 @@
 package org.pfmod2;
 
+import org.pfmod2.seres.Planta;
 import org.pfmod2.seres.SerVivo;
+import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.seres.animales.carnivoros.Aguila;
+import org.pfmod2.seres.animales.carnivoros.Boa;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
+import org.pfmod2.seres.animales.carnivoros.Oso;
+import org.pfmod2.seres.animales.herbivoros.*;
+import org.pfmod2.seres.animales.omnivoros.Jabali;
+import org.pfmod2.seres.animales.omnivoros.Pato;
+import org.pfmod2.seres.animales.omnivoros.Raton;
+import org.pfmod2.seres.animales.omnivoros.Zorro;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Configuracion {
 
@@ -17,10 +28,12 @@ public class Configuracion {
     private static final HashMap<String, Integer> MAXIMO_ANIMAL_UBICACION;
     private static final HashMap<String,Integer> VELOCIDAD_MAXIMA_ANIMAL;
     private static final HashMap<String, Boolean> SON_COMESTIBLES;
+    private static final HashMap<Integer, String> ID_ANIMALES;
 
-    // Variable Random para inicializar Lists de objetos
+    // Variables Random para inicializar Lists de objetos
     private static Random randomUbicaciones;
     private static Random randomSeres;
+    private static Random randomSerVivo;
 
     // Lists para almacenar Seres Vivos y Ubicaciones
     private static List<SerVivo> seresVivos;
@@ -123,9 +136,33 @@ public class Configuracion {
         SON_COMESTIBLES.put("Oruga",true);
         SON_COMESTIBLES.put("Plantas",true);
 
+        // Inicializador HashMap ID_ANIMALES
+        ID_ANIMALES = new HashMap<>();
+        ID_ANIMALES.put(1,"Lobo");
+        ID_ANIMALES.put(2,"Boa");
+        ID_ANIMALES.put(3,"Zorro");
+        ID_ANIMALES.put(4,"Oso");
+        ID_ANIMALES.put(5,"Águila");
+        ID_ANIMALES.put(6,"Caballo");
+        ID_ANIMALES.put(7,"Ciervo");
+        ID_ANIMALES.put(8,"Conejo");
+        ID_ANIMALES.put(9,"Ratón");
+        ID_ANIMALES.put(10,"Cabra");
+        ID_ANIMALES.put(11,"Oveja");
+        ID_ANIMALES.put(12,"Jabali");
+        ID_ANIMALES.put(13,"Búfalo");
+        ID_ANIMALES.put(14,"Pato");
+        ID_ANIMALES.put(15,"Oruga");
+        ID_ANIMALES.put(16,"Plantas");
+
+
     }
 
     public static Isla inicializarIsla(){
+
+        /**
+         * Cuerpo de inicializacion de isla, donde se incluye inicializacion de un numero ranrom de Ubicaciones
+         * */
         randomUbicaciones = new Random();
         int numeroUbicaciones = (int) randomUbicaciones.nextInt(LIMITE_UBICACIONES) + 1;
         ubicaciones = new ArrayList<Ubicacion>();
@@ -133,16 +170,145 @@ public class Configuracion {
             randomSeres = new Random();
             int numeroSeres = (int) randomSeres.nextInt(MAXIMO_SERES_UBICACION) + 1;
             seresVivos = new ArrayList<SerVivo>();
+
+            /**
+             * Cuerpo cracion de animales en modo random, se extiende debido a que no se pueden crear objetos desde valores de variables
+             * El iterador de seres vivos "itSeresVivos" define la cantidad de seres que habra en la ubicacion teniendo en cuenta
+             * la maxima poblacion de 2545 individuos
+             * Este es un prototipo mientras se encuentra un metodo mas efectivo para crear las los objetos requeridos
+             * */
             for (int itSeresVivos = 0; itSeresVivos < numeroSeres; itSeresVivos++){
-                seresVivos.add(new Lobo(itSeresVivos,
-                        PESO_ANIMALES.get("Lobo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                        ALIMENTO_ANIMALES.get("Lobo"),
-                        SON_COMESTIBLES.get("Lobo")));
+                randomSerVivo = new Random();
+                int intRandomSerVivo = randomSerVivo.nextInt(16)+1;
+                switch (intRandomSerVivo){
+                    case 1 -> {
+                        seresVivos.add(new Lobo(itSeresVivos,
+                                PESO_ANIMALES.get("Lobo"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                                ALIMENTO_ANIMALES.get("Lobo"),
+                                SON_COMESTIBLES.get("Lobo")));
+                    }
+                    case 2 -> {
+                        seresVivos.add(new Boa(itSeresVivos,
+                                PESO_ANIMALES.get("Boa"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Boa"),
+                                ALIMENTO_ANIMALES.get("Boa"),
+                                SON_COMESTIBLES.get("Boa")));
+                    }
+
+                    case 3 -> {
+                        seresVivos.add(new Zorro(itSeresVivos,
+                                PESO_ANIMALES.get("Zorro"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Zorro"),
+                                ALIMENTO_ANIMALES.get("Zorro"),
+                                SON_COMESTIBLES.get("Zorro")));
+                    }
+                    case 4 -> {
+                        seresVivos.add(new Oso(itSeresVivos,
+                                PESO_ANIMALES.get("Oso"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Oso"),
+                                ALIMENTO_ANIMALES.get("Oso"),
+                                SON_COMESTIBLES.get("Oso")));
+                    }
+                    case 5 -> {
+                        seresVivos.add(new Aguila(itSeresVivos,
+                                PESO_ANIMALES.get("Aguila"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Aguila"),
+                                ALIMENTO_ANIMALES.get("Aguila"),
+                                SON_COMESTIBLES.get("Aguila")));
+                    }
+                    case 6 -> {
+                        seresVivos.add(new Caballo(itSeresVivos,
+                                PESO_ANIMALES.get("Caballo"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Caballo"),
+                                ALIMENTO_ANIMALES.get("Caballo"),
+                                SON_COMESTIBLES.get("Caballo")));
+                    }
+
+                    case 7 -> {
+                        seresVivos.add(new Ciervo(itSeresVivos,
+                                PESO_ANIMALES.get("Ciervo"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Ciervo"),
+                                ALIMENTO_ANIMALES.get("Ciervo"),
+                                SON_COMESTIBLES.get("Ciervo")));
+                    }
+
+                    case 8 -> {
+                        seresVivos.add(new Conejo(itSeresVivos,
+                                PESO_ANIMALES.get("Conejo"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Conejo"),
+                                ALIMENTO_ANIMALES.get("Conejo"),
+                                SON_COMESTIBLES.get("Conejo")));
+                    }
+
+                    case 9 -> {
+                        seresVivos.add(new Raton(itSeresVivos,
+                                PESO_ANIMALES.get("Raton"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Raton"),
+                                ALIMENTO_ANIMALES.get("Raton"),
+                                SON_COMESTIBLES.get("Raton")));
+                    }
+
+                    case 10 -> {
+                        seresVivos.add(new Cabra(itSeresVivos,
+                                PESO_ANIMALES.get("Cabra"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Cabra"),
+                                ALIMENTO_ANIMALES.get("Cabra"),
+                                SON_COMESTIBLES.get("Cabra")));
+                    }
+
+                    case 11 -> {
+                        seresVivos.add(new Oveja(itSeresVivos,
+                                PESO_ANIMALES.get("Oveja"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Oveja"),
+                                ALIMENTO_ANIMALES.get("Oveja"),
+                                SON_COMESTIBLES.get("Oveja")));
+                    }
+
+                    case 12 -> {
+                        seresVivos.add(new Jabali(itSeresVivos,
+                                PESO_ANIMALES.get("Jabali"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Jabali"),
+                                ALIMENTO_ANIMALES.get("Jabali"),
+                                SON_COMESTIBLES.get("Jabali")));
+                    }
+
+                    case 13 -> {
+                        seresVivos.add(new Bufalo(itSeresVivos,
+                                PESO_ANIMALES.get("Bufalo"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Bufalo"),
+                                ALIMENTO_ANIMALES.get("Bufalo"),
+                                SON_COMESTIBLES.get("Bufalo")));
+                    }
+
+                    case 14 -> {
+                        seresVivos.add(new Pato(itSeresVivos,
+                                PESO_ANIMALES.get("Pato"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Pato"),
+                                ALIMENTO_ANIMALES.get("Pato"),
+                                SON_COMESTIBLES.get("Pato")));
+                    }
+
+                    case 15 -> {
+                        seresVivos.add(new Oruga(itSeresVivos,
+                                PESO_ANIMALES.get("Oruga"),
+                                true,VELOCIDAD_MAXIMA_ANIMAL.get("Oruga"),
+                                ALIMENTO_ANIMALES.get("Oruga"),
+                                SON_COMESTIBLES.get("Oruga")));
+                    }
+
+                    default -> {
+                        seresVivos.add(new Planta(itSeresVivos,
+                                PESO_ANIMALES.get("Planta"),
+                                true));
+                    }
+                }
+
             }
 
             ubicaciones.add(new Ubicacion(itUbicaciones, seresVivos));
         }
         return new Isla(ubicaciones);
     }
+
 }
