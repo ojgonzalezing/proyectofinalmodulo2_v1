@@ -18,10 +18,10 @@ public class Ubicacion {
     public void listarUbicaciones() throws InterruptedException {
 
         System.out.println(String.format("Ubicacion Id: -> "+ this.idUbicacion + ", Cantidad animales es esta ubicacion -> %d", seresVivos.size()));
-        /*for(SerVivo serVivo:seresVivos){
+        for(SerVivo serVivo:seresVivos){
             System.out.println(serVivo);
-        }*/
+        }
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
     }
 }
