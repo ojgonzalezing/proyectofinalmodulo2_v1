@@ -1,6 +1,7 @@
 package org.pfmod2.seres.animales.herbivoros;
 
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.ubicaciones.Ubicacion;
 
 public class Bufalo extends Herbivoro{
     public Bufalo(int idSerVivo, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
@@ -70,5 +71,10 @@ public class Bufalo extends Herbivoro{
     @Override
     public void comerAnimal(Animal presa) {
 
+    }
+
+    @Override
+    public Ubicacion desplazarse(Ubicacion ubicacion) {
+        return null;
     }
 }

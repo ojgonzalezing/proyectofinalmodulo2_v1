@@ -2,7 +2,7 @@ package org.pfmod2.seres.animales;
 
 import org.pfmod2.seres.SerVivo;
 
-public abstract class Animal extends SerVivo implements Comestible {
+public abstract class Animal extends SerVivo implements Comestible, Desplazable {
 
     protected double velocidadAnimal;
     protected double alimentacionAnimal;

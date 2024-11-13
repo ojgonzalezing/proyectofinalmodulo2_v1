@@ -1,6 +1,7 @@
 package org.pfmod2.seres.animales.carnivoros;
 
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.ubicaciones.Ubicacion;
 
 public class Aguila extends Carnivoro{
     public Aguila(int idSerVivo, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
@@ -69,5 +70,10 @@ public class Aguila extends Carnivoro{
 
     @Override
     public void comerAnimal(Animal presa) {
+    }
+
+    @Override
+    public Ubicacion desplazarse(Ubicacion ubicacion) {
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package org.pfmod2.seres.animales.omnivoros;
 
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.ubicaciones.Ubicacion;
 
 public class Pato extends Omnivoro{
 
@@ -72,5 +73,10 @@ public class Pato extends Omnivoro{
     @Override
     public void comerAnimal(Animal presa) {
 
+    }
+
+    @Override
+    public Ubicacion desplazarse(Ubicacion ubicacion) {
+        return null;
     }
 }

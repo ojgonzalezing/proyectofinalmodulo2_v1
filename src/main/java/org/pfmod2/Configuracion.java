@@ -189,6 +189,7 @@ public class Configuracion {
          * El iterador de seres vivos "itSeresVivos" define la cantidad de seres que habra en la ubicacion teniendo en cuenta
          * la maxima poblacion de 2545 individuos
          * Este es un prototipo mientras se encuentra un metodo mas efectivo para crear las los objetos requeridos
+         * Pendiente codigo para mejorar crecion de objetos partiendo por los recursos (Plantas, Orugas)
          * */
         randomSerVivo = new Random();
         int intRandomSerVivo = randomSerVivo.nextInt(16)+1;

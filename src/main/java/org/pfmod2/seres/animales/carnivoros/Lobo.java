@@ -1,6 +1,12 @@
 package org.pfmod2.seres.animales.carnivoros;
 
+import org.pfmod2.seres.SerVivo;
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.ubicaciones.Isla;
+import org.pfmod2.ubicaciones.Ubicacion;
+
+import java.util.List;
+import java.util.Random;
 
 public class Lobo extends Carnivoro{
     public Lobo(int idSerVivo, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
@@ -10,6 +16,14 @@ public class Lobo extends Carnivoro{
     @Override
     public double getVelocidadAnimal() {
         return this.velocidadAnimal;
+    }
+
+    public SerVivo retorrnarObjeto(int idSerVivo){
+        if (idSerVivo == this.getIdSerVivo()){
+            return this;
+        }else {
+            return null;
+        }
     }
 
     @Override
@@ -71,5 +85,13 @@ public class Lobo extends Carnivoro{
     public void comerAnimal(Animal presa) {
     }
 
+
+    @Override
+    public Ubicacion desplazarse(Ubicacion ubicacion) {
+        Random randomDireccion = new Random();
+        int direccion = randomDireccion.nextInt(1);
+        List<Ubicacion> ubicaciones = Isla.retornarUbicaciones();
+        return null;
+    }
 }
 

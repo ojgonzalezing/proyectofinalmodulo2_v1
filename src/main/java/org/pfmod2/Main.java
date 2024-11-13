@@ -1,12 +1,13 @@
 package org.pfmod2;
 
+import org.pfmod2.seres.SerVivo;
+import org.pfmod2.seres.animales.Animal;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.xml.transform.Source;
+import java.util.*;
 
 import static org.pfmod2.Configuracion.*;
 
@@ -18,7 +19,11 @@ public class Main {
         Isla islaLocal = Configuracion.inicializarIsla();
         List<Ubicacion> ubicaciones = islaLocal.retornarUbicaciones();
         for(Ubicacion ubicacion:ubicaciones){
-            ubicacion.listarUbicaciones();
+            ubicacion.reporteInicializacionUbicacion();
+        }
+        for(Ubicacion ubicacion: ubicaciones){
+            System.out.println(ubicacion.retornarListadoAnimales().stream().filter(servivo -> servivo == retornarSerVivo(1)));
         }
     }
 }
+
