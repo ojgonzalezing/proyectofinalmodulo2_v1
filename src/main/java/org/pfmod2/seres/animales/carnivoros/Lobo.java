@@ -1,105 +1,80 @@
 package org.pfmod2.seres.animales.carnivoros;
 
-import org.pfmod2.seres.SerVivo;
 import org.pfmod2.seres.animales.Animal;
-import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
-import java.util.List;
-import java.util.Random;
-
-public class Lobo extends Animal {
-    public Lobo(int idSerVivo, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
-        super(idSerVivo, pesoSerVivo, estaVivo, velocidadAnimal, alimentacionAnimal, comestible);
+public class Lobo extends Carnivoro{
+    public Lobo(int idSerVivo, Ubicacion ubicacion, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
+        super(idSerVivo, ubicacion, pesoSerVivo, estaVivo, velocidadAnimal, alimentacionAnimal, comestible);
     }
 
     @Override
     public double getVelocidadAnimal() {
-        return this.velocidadAnimal;
-    }
-
-    public SerVivo retorrnarObjeto(int idSerVivo){
-        if (idSerVivo == this.getIdSerVivo()){
-            return this;
-        }else {
-            return null;
-        }
+        return 0;
     }
 
     @Override
     public void setVelocidadAnimal(double velocidadAnimal) {
-        this.velocidadAnimal = velocidadAnimal;
+
     }
 
     @Override
     public double getAlimentacionAnimal() {
-        return this.alimentacionAnimal;
+        return 0;
     }
 
     @Override
     public void setAlimentacionAnimal(double alimentacionAnimal) {
-        this.alimentacionAnimal = alimentacionAnimal;
+
     }
 
     @Override
     public void setComestible(boolean comestible) {
-        this.comestible = comestible;
+
     }
 
     @Override
     public int getIdSerVivo() {
-        return this.idSerVivo;
+        return 0;
     }
 
     @Override
     public void setIdSerVivo(int idSerVivo) {
-        this.idSerVivo = idSerVivo;
+
     }
 
     @Override
     public double getPesoSerVivo() {
-        return this.pesoSerVivo;
+        return 0;
     }
 
     @Override
     public void setPesoSerVivo(double pesoSerVivo) {
-        this.pesoSerVivo = pesoSerVivo;
+
     }
 
     @Override
     public boolean getEstaVivo() {
-        return this.estaVivo;
+        return false;
     }
 
     @Override
     public void setEstaVivo(boolean estaVivo) {
-        this.estaVivo = estaVivo;
+
     }
 
     @Override
     public boolean esComestible() {
-        return this.comestible;
+        return false;
     }
 
     @Override
     public void comerAnimal(Animal presa) {
+
     }
 
-
     @Override
-    public Ubicacion desplazarse(Ubicacion ubicacion) {
-        Random randomDireccion = new Random();
-        int direccion = randomDireccion.nextInt(2);
-        if(direccion == 0){
-            
-        } else if (direccion == 1) {
-
-        }else {
-
-        }
-        List<Ubicacion> ubicaciones = Isla.retornarUbicaciones();
-
+    public Ubicacion desplazarse() {
         return null;
     }
 }
-

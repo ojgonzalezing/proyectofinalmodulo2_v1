@@ -4,5 +4,5 @@ import org.pfmod2.ubicaciones.Ubicacion;
 
 public interface Desplazable {
 
-    public Ubicacion desplazarse(Ubicacion ubicacion);
+    public Ubicacion desplazarse();
 }

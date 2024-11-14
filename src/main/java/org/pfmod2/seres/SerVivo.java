@@ -5,10 +5,12 @@ import org.pfmod2.ubicaciones.Ubicacion;
 
 public abstract class SerVivo {
     protected int idSerVivo;
+    protected Ubicacion ubicacion;
     protected double pesoSerVivo;
     protected boolean estaVivo;
-    public SerVivo(int idSerVivo, double pesoSerVivo, boolean estaVivo) {
+    public SerVivo(int idSerVivo, Ubicacion ubicacion, double pesoSerVivo, boolean estaVivo) {
         this.idSerVivo = idSerVivo;
+        this.ubicacion = ubicacion;
         this.pesoSerVivo = pesoSerVivo;
         this.estaVivo = estaVivo;
     }

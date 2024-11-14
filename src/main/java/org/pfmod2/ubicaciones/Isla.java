@@ -9,21 +9,13 @@ import java.util.List;
 public class Isla {
 
     private static final String NOMBRE_ISLA = "La isla de la Infantasia";
-    private static List<Ubicacion> ubicaciones;
-    private static HashMap<SerVivo, Ubicacion> ubicacionSerVivo;
+    private static HashMap<Integer, Ubicacion> ubicaciones;
+    private static HashMap<Integer, SerVivo> seresvivos;
 
-    public Isla(List<Ubicacion> ubicaciones) {
+    public Isla(HashMap<Integer, Ubicacion> ubicaciones, HashMap<Integer, SerVivo> seresvivos) {
         this.ubicaciones = ubicaciones;
+        this.seresvivos = seresvivos;
     }
 
-    public static List<Ubicacion> retornarUbicaciones(){
-        return ubicaciones;
-    }
-
-    public void imprimeUbicaciones(){
-        for(Ubicacion ubicacion:ubicaciones){
-            System.out.println(ubicacion);
-        }
-    }
 }
 

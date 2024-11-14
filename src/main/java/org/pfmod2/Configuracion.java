@@ -22,12 +22,12 @@ public class Configuracion {
 
     // Variables Random para inicializar Lists de objetos
     private static Random randomUbicaciones;
-    private static Random randomSeres;
-    private static Random randomSerVivo;
+    private static Random randomCantidadSeresUbicacion;
+    private static Random randomClaseSerVivo;
 
     // Lists para almacenar Seres Vivos y Ubicaciones
-    private static List<SerVivo> seresVivos;
-    private static List<Ubicacion> ubicaciones;
+    private static HashMap<Integer, Ubicacion> ubicaciones;
+    private static HashMap<Integer, SerVivo> seresVivos;
 
     static{
 
@@ -155,22 +155,25 @@ public class Configuracion {
          * */
         randomUbicaciones = new Random();
         int numeroUbicaciones = (int) randomUbicaciones.nextInt(LIMITE_UBICACIONES) + 1;
-        ubicaciones = new ArrayList<Ubicacion>();
+        ubicaciones = new HashMap<>();
+        seresVivos = new HashMap<>();
         for(int itUbicaciones = 0; itUbicaciones < numeroUbicaciones; itUbicaciones++){
-            randomSeres = new Random();
-            int numeroSeres = (int) randomSeres.nextInt(MAXIMO_SERES_UBICACION) + 1;
-            seresVivos = new ArrayList<SerVivo>();
-            for (int itSeresVivos = 0; itSeresVivos < numeroSeres; itSeresVivos++){
-                seresVivos.add(retornarSerVivo(itSeresVivos));
+            randomCantidadSeresUbicacion = new Random();
+            Ubicacion ubicacion = new Ubicacion(itUbicaciones);
+            int intCantidadSeresUbicacion = (int) randomCantidadSeresUbicacion.nextInt(MAXIMO_SERES_UBICACION) + 1;
+            for (int itSeresVivos = 0; itSeresVivos < intCantidadSeresUbicacion; itSeresVivos++){
+                Random randomIdSerVivo = new Random();
+                int intRandomIdSerVivo = randomIdSerVivo.nextInt(Integer.MAX_VALUE);
+                seresVivos.put(intRandomIdSerVivo, crearSerVivo(intRandomIdSerVivo, ubicacion));
             }
 
-            ubicaciones.add(new Ubicacion(itUbicaciones, seresVivos));
+            ubicaciones.put(itUbicaciones, ubicacion);
         }
 
-        return new Isla(ubicaciones);
+        return new Isla(ubicaciones, seresVivos);
     }
 
-    public static SerVivo retornarSerVivo(int idSerVivo){
+    public static SerVivo crearSerVivo(int idSerVivo, Ubicacion ubicacion){
 
         /**
          * Cuerpo cracion de animales en modo random, se extiende debido a que no se pueden crear objetos desde valores de variables
@@ -179,130 +182,17 @@ public class Configuracion {
          * Este es un prototipo mientras se encuentra un metodo mas efectivo para crear las los objetos requeridos
          * Pendiente codigo para mejorar crecion de objetos partiendo por los recursos (Plantas, Orugas)
          * */
-        randomSerVivo = new Random();
-        int intRandomSerVivo = randomSerVivo.nextInt(16)+1;
-        SerVivo serVivo = switch(intRandomSerVivo){
-            case 1 -> {
-                yield (new Lobo(idSerVivo,
-                        PESO_ANIMALES.get("Lobo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                        ALIMENTO_ANIMALES.get("Lobo"),
-                        SON_COMESTIBLES.get("Lobo")));
-            }
-            case 2 -> {
-                yield (new Boa(idSerVivo,
-                        PESO_ANIMALES.get("Boa"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Boa"),
-                        ALIMENTO_ANIMALES.get("Boa"),
-                        SON_COMESTIBLES.get("Boa")));
-            }
-
-            case 3 -> {
-                yield (new Zorro(idSerVivo,
-                        PESO_ANIMALES.get("Zorro"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Zorro"),
-                        ALIMENTO_ANIMALES.get("Zorro"),
-                        SON_COMESTIBLES.get("Zorro")));
-            }
-            case 4 -> {
-                yield (new Oso(idSerVivo,
-                        PESO_ANIMALES.get("Oso"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Oso"),
-                        ALIMENTO_ANIMALES.get("Oso"),
-                        SON_COMESTIBLES.get("Oso")));
-            }
-            case 5 -> {
-                yield (new Aguila(idSerVivo,
-                        PESO_ANIMALES.get("Aguila"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Aguila"),
-                        ALIMENTO_ANIMALES.get("Aguila"),
-                        SON_COMESTIBLES.get("Aguila")));
-            }
-            case 6 -> {
-                yield (new Caballo(idSerVivo,
-                        PESO_ANIMALES.get("Caballo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Caballo"),
-                        ALIMENTO_ANIMALES.get("Caballo"),
-                        SON_COMESTIBLES.get("Caballo")));
-            }
-
-            case 7 -> {
-                yield (new Ciervo(idSerVivo,
-                        PESO_ANIMALES.get("Ciervo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Ciervo"),
-                        ALIMENTO_ANIMALES.get("Ciervo"),
-                        SON_COMESTIBLES.get("Ciervo")));
-            }
-
-            case 8 -> {
-                yield (new Conejo(idSerVivo,
-                        PESO_ANIMALES.get("Conejo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Conejo"),
-                        ALIMENTO_ANIMALES.get("Conejo"),
-                        SON_COMESTIBLES.get("Conejo")));
-            }
-
-            case 9 -> {
-                yield (new Raton(idSerVivo,
-                        PESO_ANIMALES.get("Raton"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Raton"),
-                        ALIMENTO_ANIMALES.get("Raton"),
-                        SON_COMESTIBLES.get("Raton")));
-            }
-
-            case 10 -> {
-                yield (new Cabra(idSerVivo,
-                        PESO_ANIMALES.get("Cabra"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Cabra"),
-                        ALIMENTO_ANIMALES.get("Cabra"),
-                        SON_COMESTIBLES.get("Cabra")));
-            }
-
-            case 11 -> {
-                yield (new Oveja(idSerVivo,
-                        PESO_ANIMALES.get("Oveja"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Oveja"),
-                        ALIMENTO_ANIMALES.get("Oveja"),
-                        SON_COMESTIBLES.get("Oveja")));
-            }
-
-            case 12 -> {
-                yield (new Jabali(idSerVivo,
-                        PESO_ANIMALES.get("Jabali"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Jabali"),
-                        ALIMENTO_ANIMALES.get("Jabali"),
-                        SON_COMESTIBLES.get("Jabali")));
-            }
-
-            case 13 -> {
-                yield (new Bufalo(idSerVivo,
-                        PESO_ANIMALES.get("Bufalo"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Bufalo"),
-                        ALIMENTO_ANIMALES.get("Bufalo"),
-                        SON_COMESTIBLES.get("Bufalo")));
-            }
-
-            case 14 -> {
-                yield (new Pato(idSerVivo,
-                        PESO_ANIMALES.get("Pato"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Pato"),
-                        ALIMENTO_ANIMALES.get("Pato"),
-                        SON_COMESTIBLES.get("Pato")));
-            }
-
-            case 15 -> {
-                yield (new Oruga(idSerVivo,
-                        PESO_ANIMALES.get("Oruga"),
-                        true,VELOCIDAD_MAXIMA_ANIMAL.get("Oruga"),
-                        ALIMENTO_ANIMALES.get("Oruga"),
-                        SON_COMESTIBLES.get("Oruga")));
-            }
-
-            default -> {
-                yield (new Planta(idSerVivo,
-                        PESO_ANIMALES.get("Planta"),
-                        true));
-            }
+        randomClaseSerVivo = new Random();
+        int intRandomClaseSerVivo = randomClaseSerVivo.nextInt(16)+1;
+        SerVivo serVivo = switch(intRandomClaseSerVivo){
+            case 1 -> (new Lobo(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Lobo"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+            default -> (new Planta(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Planta"),
+                    true));
             /**
              * Fin de cuerpo de creación random de SeresVivos
              * */
