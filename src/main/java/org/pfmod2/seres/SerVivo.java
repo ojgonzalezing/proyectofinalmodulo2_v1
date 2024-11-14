@@ -1,5 +1,8 @@
 
 package org.pfmod2.seres;
+
+import org.pfmod2.ubicaciones.Ubicacion;
+
 public abstract class SerVivo {
     protected int idSerVivo;
     protected double pesoSerVivo;

@@ -2,7 +2,6 @@ package org.pfmod2;
 
 import org.pfmod2.seres.Planta;
 import org.pfmod2.seres.SerVivo;
-import org.pfmod2.seres.animales.Animal;
 import org.pfmod2.seres.animales.carnivoros.Aguila;
 import org.pfmod2.seres.animales.carnivoros.Boa;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
@@ -170,8 +169,6 @@ public class Configuracion {
             randomSeres = new Random();
             int numeroSeres = (int) randomSeres.nextInt(MAXIMO_SERES_UBICACION) + 1;
             seresVivos = new ArrayList<SerVivo>();
-
-
             for (int itSeresVivos = 0; itSeresVivos < numeroSeres; itSeresVivos++){
                 seresVivos.add(retornarSerVivo(itSeresVivos));
             }

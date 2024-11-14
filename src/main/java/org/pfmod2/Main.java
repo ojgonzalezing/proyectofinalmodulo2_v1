@@ -21,9 +21,13 @@ public class Main {
         for(Ubicacion ubicacion:ubicaciones){
             ubicacion.reporteInicializacionUbicacion();
         }
-        for(Ubicacion ubicacion: ubicaciones){
-            System.out.println(ubicacion.retornarListadoAnimales().stream().filter(servivo -> servivo == retornarSerVivo(1)));
+        for(Ubicacion ubicacion : ubicaciones){
+            List<SerVivo> seresVivos = ubicacion.retornarListadoAnimales();
+            for(SerVivo serVivo : seresVivos){
+                System.out.println(serVivo);
+            }
         }
+
     }
 }
 

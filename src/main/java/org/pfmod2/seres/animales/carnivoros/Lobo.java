@@ -89,8 +89,16 @@ public class Lobo extends Carnivoro{
     @Override
     public Ubicacion desplazarse(Ubicacion ubicacion) {
         Random randomDireccion = new Random();
-        int direccion = randomDireccion.nextInt(1);
+        int direccion = randomDireccion.nextInt(2);
+        if(direccion == 0){
+            
+        } else if (direccion == 1) {
+
+        }else {
+
+        }
         List<Ubicacion> ubicaciones = Isla.retornarUbicaciones();
+
         return null;
     }
 }
