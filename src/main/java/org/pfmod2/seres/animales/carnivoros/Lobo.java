@@ -8,7 +8,7 @@ import org.pfmod2.ubicaciones.Ubicacion;
 import java.util.List;
 import java.util.Random;
 
-public class Lobo extends Carnivoro{
+public class Lobo extends Animal {
     public Lobo(int idSerVivo, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
         super(idSerVivo, pesoSerVivo, estaVivo, velocidadAnimal, alimentacionAnimal, comestible);
     }

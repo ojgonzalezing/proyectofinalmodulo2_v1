@@ -2,20 +2,11 @@ package org.pfmod2;
 
 import org.pfmod2.seres.Planta;
 import org.pfmod2.seres.SerVivo;
-import org.pfmod2.seres.animales.carnivoros.Aguila;
-import org.pfmod2.seres.animales.carnivoros.Boa;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
-import org.pfmod2.seres.animales.carnivoros.Oso;
-import org.pfmod2.seres.animales.herbivoros.*;
-import org.pfmod2.seres.animales.omnivoros.Jabali;
-import org.pfmod2.seres.animales.omnivoros.Pato;
-import org.pfmod2.seres.animales.omnivoros.Raton;
-import org.pfmod2.seres.animales.omnivoros.Zorro;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Configuracion {
 
