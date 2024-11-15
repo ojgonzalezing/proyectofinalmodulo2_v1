@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Isla islaLocal = Configuracion.inicializarIsla();
-        islaLocal.imprimirSeresVivos();
+        //islaLocal.imprimirSeresVivos();
         islaLocal.imprimirUbicaciones();
     }
 }

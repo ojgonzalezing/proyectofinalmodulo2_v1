@@ -2,7 +2,15 @@ package org.pfmod2;
 
 import org.pfmod2.seres.Planta;
 import org.pfmod2.seres.SerVivo;
+import org.pfmod2.seres.animales.carnivoros.Aguila;
+import org.pfmod2.seres.animales.carnivoros.Boa;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
+import org.pfmod2.seres.animales.carnivoros.Oso;
+import org.pfmod2.seres.animales.herbivoros.*;
+import org.pfmod2.seres.animales.omnivoros.Jabali;
+import org.pfmod2.seres.animales.omnivoros.Pato;
+import org.pfmod2.seres.animales.omnivoros.Raton;
+import org.pfmod2.seres.animales.omnivoros.Zorro;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
@@ -15,7 +23,8 @@ public class Configuracion {
     private static final int MAXIMO_SERES_UBICACION = 2545;
     private static final HashMap<String, Double> PESO_ANIMALES;
     private static final HashMap<String, Double> ALIMENTO_ANIMALES;
-    private static final HashMap<String, Integer> MAXIMO_ANIMAL_UBICACION;
+    private static final HashMap<Integer, Integer> MAXIMO_ANIMAL_UBICACION;
+    private static final HashMap<Integer, Integer> MINIMO_ANIMAL_UBICACION;
     private static final HashMap<String,Integer> VELOCIDAD_MAXIMA_ANIMAL;
     private static final HashMap<String, Boolean> SON_COMESTIBLES;
     private static final HashMap<Integer, String> ID_ANIMALES;
@@ -69,24 +78,42 @@ public class Configuracion {
         ALIMENTO_ANIMALES.put("Oruga", 0.0);
         ALIMENTO_ANIMALES.put("Planta",0.0);
 
-        // Inicializador HashMap MAXIMO_ANIMAL_UBICACION
+        // Inicializador HashMap MAXIMO_ANIMAL_UBICACION & MINIMO_ANIMAL_UBICACION
         MAXIMO_ANIMAL_UBICACION = new HashMap<>();
-        MAXIMO_ANIMAL_UBICACION.put("Lobo",30);
-        MAXIMO_ANIMAL_UBICACION.put("Boa",30);
-        MAXIMO_ANIMAL_UBICACION.put("Zorro",30);
-        MAXIMO_ANIMAL_UBICACION.put("Oso",5);
-        MAXIMO_ANIMAL_UBICACION.put("Aguila",20);
-        MAXIMO_ANIMAL_UBICACION.put("Caballo",20);
-        MAXIMO_ANIMAL_UBICACION.put("Ciervo",20);
-        MAXIMO_ANIMAL_UBICACION.put("Conejo",150);
-        MAXIMO_ANIMAL_UBICACION.put("Raton",500);
-        MAXIMO_ANIMAL_UBICACION.put("Cabra",140);
-        MAXIMO_ANIMAL_UBICACION.put("Oveja",140);
-        MAXIMO_ANIMAL_UBICACION.put("Jabali",50);
-        MAXIMO_ANIMAL_UBICACION.put("Bufalo",10);
-        MAXIMO_ANIMAL_UBICACION.put("Pato",200);
-        MAXIMO_ANIMAL_UBICACION.put("Oruga",1000);
-        MAXIMO_ANIMAL_UBICACION.put("Planta",200);
+        MAXIMO_ANIMAL_UBICACION.put(1,30);
+        MAXIMO_ANIMAL_UBICACION.put(2,30);
+        MAXIMO_ANIMAL_UBICACION.put(3,30);
+        MAXIMO_ANIMAL_UBICACION.put(4,5);
+        MAXIMO_ANIMAL_UBICACION.put(5,20);
+        MAXIMO_ANIMAL_UBICACION.put(6,20);
+        MAXIMO_ANIMAL_UBICACION.put(7,20);
+        MAXIMO_ANIMAL_UBICACION.put(8,150);
+        MAXIMO_ANIMAL_UBICACION.put(9,500);
+        MAXIMO_ANIMAL_UBICACION.put(10,140);
+        MAXIMO_ANIMAL_UBICACION.put(11,140);
+        MAXIMO_ANIMAL_UBICACION.put(12,50);
+        MAXIMO_ANIMAL_UBICACION.put(13,10);
+        MAXIMO_ANIMAL_UBICACION.put(14,200);
+        MAXIMO_ANIMAL_UBICACION.put(15,1000);
+        MAXIMO_ANIMAL_UBICACION.put(16,200);
+
+        MINIMO_ANIMAL_UBICACION = new HashMap<>();
+        MINIMO_ANIMAL_UBICACION.put(1,6);
+        MINIMO_ANIMAL_UBICACION.put(2,6);
+        MINIMO_ANIMAL_UBICACION.put(3,6);
+        MINIMO_ANIMAL_UBICACION.put(4,2);
+        MINIMO_ANIMAL_UBICACION.put(5,5);
+        MINIMO_ANIMAL_UBICACION.put(6,5);
+        MINIMO_ANIMAL_UBICACION.put(7,5);
+        MINIMO_ANIMAL_UBICACION.put(8,30);
+        MINIMO_ANIMAL_UBICACION.put(9,100);
+        MINIMO_ANIMAL_UBICACION.put(10,27);
+        MINIMO_ANIMAL_UBICACION.put(11,27);
+        MINIMO_ANIMAL_UBICACION.put(12,10);
+        MINIMO_ANIMAL_UBICACION.put(13,2);
+        MINIMO_ANIMAL_UBICACION.put(14,40);
+        MINIMO_ANIMAL_UBICACION.put(15,200);
+        MINIMO_ANIMAL_UBICACION.put(16,40);
 
         // Inicializador HashMap VALOCIDAD_MAXIMA_ANIMAL
         VELOCIDAD_MAXIMA_ANIMAL = new HashMap<>();
@@ -183,13 +210,98 @@ public class Configuracion {
          * Pendiente codigo para mejorar crecion de objetos partiendo por los recursos (Plantas, Orugas)
          * */
         randomClaseSerVivo = new Random();
-        int intRandomClaseSerVivo = randomClaseSerVivo.nextInt(2);
+        int intRandomClaseSerVivo = randomClaseSerVivo.nextInt(16)+1;
         SerVivo serVivo = switch(intRandomClaseSerVivo){
             case 1 -> (new Lobo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Lobo"),
                     true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
                     ALIMENTO_ANIMALES.get("Lobo"),
                     SON_COMESTIBLES.get("Lobo")));
+
+            case 2 -> (new Boa(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Boa"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 3 -> (new Zorro(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Zorro"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 4 -> (new Oso(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Oso"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 5 -> (new Aguila(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Aguila"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 6 -> (new Caballo(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Caballo"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 7 -> (new Ciervo(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Ciervo"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 8 -> (new Conejo(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Conejo"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 9 -> (new Raton(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Raton"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 10 -> (new Cabra(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Cabra"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 11 -> (new Oveja(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Oveja"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 12 -> (new Jabali(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Jabali"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 13 -> (new Bufalo(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Bufalo"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 14 -> (new Pato(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Pato"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
+            case 15 -> (new Oruga(idSerVivo, ubicacion,
+                    PESO_ANIMALES.get("Oruga"),
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
+                    ALIMENTO_ANIMALES.get("Lobo"),
+                    SON_COMESTIBLES.get("Lobo")));
+
             default -> (new Planta(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Planta"),
                     true));
