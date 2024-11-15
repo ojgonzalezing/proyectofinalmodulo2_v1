@@ -9,8 +9,8 @@ public abstract class Animal extends SerVivo implements Comestible, Desplazable 
     protected double alimentacionAnimal;
     protected boolean comestible;
 
-    public Animal(int idSerVivo, Ubicacion ubicacion, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
-        super(idSerVivo, ubicacion, pesoSerVivo, estaVivo);
+    public Animal(int idSerVivo, int idUbicacion, double pesoSerVivo, boolean estaVivo, double velocidadAnimal, double alimentacionAnimal, boolean comestible) {
+        super(idSerVivo, idUbicacion, pesoSerVivo, estaVivo);
         this.velocidadAnimal = velocidadAnimal;
         this.alimentacionAnimal = alimentacionAnimal;
         this.comestible = comestible;
@@ -18,13 +18,27 @@ public abstract class Animal extends SerVivo implements Comestible, Desplazable 
     }
 
 
-    public abstract double getVelocidadAnimal();
+    public double getVelocidadAnimal(){
+        return this.velocidadAnimal;
+    }
 
-    public abstract void setVelocidadAnimal(double velocidadAnimal);
+    public void setVelocidadAnimal(double velocidadAnimal){
+        this.velocidadAnimal = velocidadAnimal;
+    }
 
-    public abstract double getAlimentacionAnimal();
+    public double getAlimentacionAnimal(){
+        return this.alimentacionAnimal;
+    }
 
-    public abstract void setAlimentacionAnimal(double alimentacionAnimal);
+    public void setAlimentacionAnimal(double alimentacionAnimal){
+        this.alimentacionAnimal = alimentacionAnimal;
+    }
 
-    public abstract void setComestible(boolean comestible);
+    public boolean isComestible() {
+        return comestible;
+    }
+
+    public void setComestible(boolean comestible) {
+        this.comestible = comestible;
+    }
 }

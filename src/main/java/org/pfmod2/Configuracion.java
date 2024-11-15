@@ -164,7 +164,7 @@ public class Configuracion {
             for (int itSeresVivos = 0; itSeresVivos < intCantidadSeresUbicacion; itSeresVivos++){
                 Random randomIdSerVivo = new Random();
                 int intRandomIdSerVivo = randomIdSerVivo.nextInt(Integer.MAX_VALUE);
-                seresVivos.put(intRandomIdSerVivo, crearSerVivo(intRandomIdSerVivo, ubicacion));
+                seresVivos.put(intRandomIdSerVivo, crearSerVivo(intRandomIdSerVivo, itUbicaciones));
             }
 
             ubicaciones.put(itUbicaciones, ubicacion);
@@ -173,7 +173,7 @@ public class Configuracion {
         return new Isla(ubicaciones, seresVivos);
     }
 
-    public static SerVivo crearSerVivo(int idSerVivo, Ubicacion ubicacion){
+    public static SerVivo crearSerVivo(int idSerVivo, int ubicacion){
 
         /**
          * Cuerpo cracion de animales en modo random, se extiende debido a que no se pueden crear objetos desde valores de variables
@@ -183,7 +183,7 @@ public class Configuracion {
          * Pendiente codigo para mejorar crecion de objetos partiendo por los recursos (Plantas, Orugas)
          * */
         randomClaseSerVivo = new Random();
-        int intRandomClaseSerVivo = randomClaseSerVivo.nextInt(16)+1;
+        int intRandomClaseSerVivo = randomClaseSerVivo.nextInt(2);
         SerVivo serVivo = switch(intRandomClaseSerVivo){
             case 1 -> (new Lobo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Lobo"),

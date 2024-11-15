@@ -5,19 +5,41 @@ import org.pfmod2.ubicaciones.Ubicacion;
 
 public abstract class SerVivo {
     protected int idSerVivo;
-    protected Ubicacion ubicacion;
+    protected int idUbicacion;
     protected double pesoSerVivo;
     protected boolean estaVivo;
-    public SerVivo(int idSerVivo, Ubicacion ubicacion, double pesoSerVivo, boolean estaVivo) {
+    public SerVivo(int idSerVivo, int idUbicacion, double pesoSerVivo, boolean estaVivo) {
         this.idSerVivo = idSerVivo;
-        this.ubicacion = ubicacion;
+        this.idUbicacion = idUbicacion;
         this.pesoSerVivo = pesoSerVivo;
         this.estaVivo = estaVivo;
     }
-    public abstract int getIdSerVivo();
-    public abstract void setIdSerVivo(int idSerVivo);
-    public abstract double getPesoSerVivo();
-    public abstract void setPesoSerVivo(double pesoSerVivo);
-    public abstract boolean getEstaVivo();
-    public abstract void setEstaVivo(boolean estaVivo);
+    public int getIdSerVivo(){
+        return this.idSerVivo;
+    }
+    public void setIdSerVivo(int idSerVivo){
+        this.idSerVivo = idSerVivo;
+    }
+    public double getPesoSerVivo(){
+        return this.pesoSerVivo;
+    }
+    public void setPesoSerVivo(double pesoSerVivo){
+        this.pesoSerVivo = pesoSerVivo;
+    }
+    public boolean getEstaVivo(){
+        return this.estaVivo;
+    }
+    public void setEstaVivo(boolean estaVivo){
+        this.estaVivo = estaVivo;
+    }
+
+    public int getIdUbicacion() {
+        return this.idUbicacion;
+    }
+
+    public void setIdUbicacion(int idUbicacion) {
+        this.idUbicacion = idUbicacion;
+    }
+
+
 }
