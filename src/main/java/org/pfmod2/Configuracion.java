@@ -15,19 +15,21 @@ import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 
 public class Configuracion {
 
     // Constantes
-    private static final int LIMITE_UBICACIONES = 16;
-    private static final int MAXIMO_SERES_UBICACION = 2545;
-    private static final HashMap<String, Double> PESO_ANIMALES;
-    private static final HashMap<String, Double> ALIMENTO_ANIMALES;
-    private static final HashMap<Integer, Integer> MAXIMO_ANIMAL_UBICACION;
-    private static final HashMap<Integer, Integer> MINIMO_ANIMAL_UBICACION;
-    private static final HashMap<String,Integer> VELOCIDAD_MAXIMA_ANIMAL;
-    private static final HashMap<String, Boolean> SON_COMESTIBLES;
-    private static final HashMap<Integer, String> ID_ANIMALES;
+    public static final int LIMITE_UBICACIONES = 16;
+    public static final int MAXIMO_SERES_UBICACION = 2545;
+    public static final HashMap<String, Double> PESO_ANIMALES;
+    public static final HashMap<String, Double> ALIMENTO_ANIMALES;
+    public static final HashMap<Integer, Integer> MAXIMO_ANIMAL_UBICACION;
+    public static final HashMap<Integer, Integer> MINIMO_ANIMAL_UBICACION;
+    public static final HashMap<String,Integer> VELOCIDAD_MAXIMA_ANIMAL;
+    public static final HashMap<String, Boolean> SON_COMESTIBLES;
+    public static final HashMap<Integer, String> ID_ANIMALES;
 
     // Variables Random para inicializar Lists de objetos
     private static Random randomUbicaciones;
@@ -197,8 +199,10 @@ public class Configuracion {
             ubicaciones.put(itUbicaciones, ubicacion);
         }
 
+
         return new Isla(ubicaciones, seresVivos);
     }
+
 
     public static SerVivo crearSerVivo(int idSerVivo, int ubicacion){
 

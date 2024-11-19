@@ -14,7 +14,7 @@ public class Pato extends Omnivoro{
     }
 
     @Override
-    public int desplazarse() {
-        return 0;
+    public void desplazarse() {
+        
     }
 }

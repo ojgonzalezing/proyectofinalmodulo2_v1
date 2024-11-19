@@ -15,7 +15,7 @@ public class Oso extends Carnivoro{
     }
 
     @Override
-    public int desplazarse() {
-        return 0;
+    public void desplazarse() {
+        
     }
 }

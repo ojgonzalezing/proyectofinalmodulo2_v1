@@ -1,5 +1,6 @@
 package org.pfmod2;
 
+import org.pfmod2.seres.animales.carnivoros.Lobo;
 import org.pfmod2.ubicaciones.Isla;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -8,8 +9,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         Isla islaLocal = Configuracion.inicializarIsla();
-        //islaLocal.imprimirSeresVivos();
         islaLocal.imprimirUbicaciones();
+        islaLocal.probarLobo();
+
     }
 }
 

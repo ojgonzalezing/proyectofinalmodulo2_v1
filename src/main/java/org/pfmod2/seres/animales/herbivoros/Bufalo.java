@@ -10,8 +10,8 @@ public class Bufalo extends Herbivoro {
     }
 
     @Override
-    public int desplazarse() {
-        return 0;
+    public void desplazarse() {
+        
     }
 
     @Override
