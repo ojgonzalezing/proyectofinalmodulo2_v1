@@ -224,87 +224,87 @@ public class Configuracion {
 
             case 2 -> (new Boa(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Boa"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Boa"),
+                    ALIMENTO_ANIMALES.get("Boa"),
+                    SON_COMESTIBLES.get("Boa")));
 
             case 3 -> (new Zorro(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Zorro"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Zorro"),
+                    ALIMENTO_ANIMALES.get("Zorro"),
+                    SON_COMESTIBLES.get("Zorro")));
 
             case 4 -> (new Oso(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Oso"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Oso"),
+                    ALIMENTO_ANIMALES.get("Oso"),
+                    SON_COMESTIBLES.get("Oso")));
 
             case 5 -> (new Aguila(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Aguila"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Aguila"),
+                    ALIMENTO_ANIMALES.get("Aguila"),
+                    SON_COMESTIBLES.get("Aguila")));
 
             case 6 -> (new Caballo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Caballo"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Caballo"),
+                    ALIMENTO_ANIMALES.get("Caballo"),
+                    SON_COMESTIBLES.get("Caballo")));
 
             case 7 -> (new Ciervo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Ciervo"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Ciervo"),
+                    ALIMENTO_ANIMALES.get("Ciervo"),
+                    SON_COMESTIBLES.get("Ciervo")));
 
             case 8 -> (new Conejo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Conejo"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Conejo"),
+                    ALIMENTO_ANIMALES.get("Conejo"),
+                    SON_COMESTIBLES.get("Conejo")));
 
             case 9 -> (new Raton(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Raton"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Raton"),
+                    ALIMENTO_ANIMALES.get("Raton"),
+                    SON_COMESTIBLES.get("Raton")));
 
             case 10 -> (new Cabra(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Cabra"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Cabra"),
+                    ALIMENTO_ANIMALES.get("Cabra"),
+                    SON_COMESTIBLES.get("Cabra")));
 
             case 11 -> (new Oveja(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Oveja"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Oveja"),
+                    ALIMENTO_ANIMALES.get("Oveja"),
+                    SON_COMESTIBLES.get("Oveja")));
 
             case 12 -> (new Jabali(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Jabali"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Jabali"),
+                    ALIMENTO_ANIMALES.get("Jabali"),
+                    SON_COMESTIBLES.get("Jabali")));
 
             case 13 -> (new Bufalo(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Bufalo"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Bufalo"),
+                    ALIMENTO_ANIMALES.get("Bufalo"),
+                    SON_COMESTIBLES.get("Bufalo")));
 
             case 14 -> (new Pato(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Pato"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Pato"),
+                    ALIMENTO_ANIMALES.get("Pato"),
+                    SON_COMESTIBLES.get("Pato")));
 
             case 15 -> (new Oruga(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Oruga"),
-                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Lobo"),
-                    ALIMENTO_ANIMALES.get("Lobo"),
-                    SON_COMESTIBLES.get("Lobo")));
+                    true,VELOCIDAD_MAXIMA_ANIMAL.get("Oruga"),
+                    ALIMENTO_ANIMALES.get("Oruga"),
+                    SON_COMESTIBLES.get("Oruga")));
 
             default -> (new Planta(idSerVivo, ubicacion,
                     PESO_ANIMALES.get("Planta"),

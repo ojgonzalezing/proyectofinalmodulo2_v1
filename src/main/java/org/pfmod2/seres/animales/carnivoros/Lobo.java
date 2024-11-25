@@ -3,6 +3,7 @@ package org.pfmod2.seres.animales.carnivoros;
 import org.pfmod2.Configuracion;
 import org.pfmod2.seres.SerVivo;
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.seres.animales.omnivoros.Raton;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
@@ -15,9 +16,21 @@ public class Lobo extends Carnivoro{
         super(idSerVivo, idUbicacion, pesoSerVivo, estaVivo, velocidadAnimal, alimentacionAnimal, comestible);
     }
 
+    public SerVivo devuelveObjeto(){
+        return this;
+    }
     @Override
     public void comer(SerVivo presa) {
-
+        if (presa instanceof Raton){
+            //System.out.println(String.format("Lobo ID -> %d intentara comer a Raton Id -> %d", this.getIdSerVivo(), presa.getIdSerVivo()));
+            int porcentajeIntento = new Random().nextInt(101);
+            if (porcentajeIntento >= 80){
+                presa.setEstaVivo(false);
+                System.out.println(String.format("Intento exitoso, Lobo Id %d se come a Raton Id %d, nuevo estado de Raton vivo -> %b", this.getIdSerVivo(), presa.getIdSerVivo(), presa.getEstaVivo()));
+            }else {
+                System.out.println(String.format("Intento NO exitoso, Lobo Id %d NO se come a Raton Id %d, Raton consevra su estado vivo  -> %b", this.getIdSerVivo(), presa.getIdSerVivo(), presa.getEstaVivo()));
+            }
+        }
     }
 
     @Override
