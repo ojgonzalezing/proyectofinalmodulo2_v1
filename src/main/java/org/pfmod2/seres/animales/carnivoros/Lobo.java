@@ -21,15 +21,16 @@ public class Lobo extends Carnivoro{
     }
     @Override
     public void comer(SerVivo presa) {
-        if (presa instanceof Raton){
-            //System.out.println(String.format("Lobo ID -> %d intentara comer a Raton Id -> %d", this.getIdSerVivo(), presa.getIdSerVivo()));
-            int porcentajeIntento = new Random().nextInt(101);
-            if (porcentajeIntento >= 80){
-                presa.setEstaVivo(false);
-                System.out.println(String.format("Intento exitoso, Lobo Id %d se come a Raton Id %d, nuevo estado de Raton vivo -> %b", this.getIdSerVivo(), presa.getIdSerVivo(), presa.getEstaVivo()));
-            }else {
-                System.out.println(String.format("Intento NO exitoso, Lobo Id %d NO se come a Raton Id %d, Raton consevra su estado vivo  -> %b", this.getIdSerVivo(), presa.getIdSerVivo(), presa.getEstaVivo()));
-            }
+        Random randomAtaque = new Random();
+        int intRandomAtaque = randomAtaque.nextInt(101);
+        System.out.println(String.format("Porcentaje obtenido: %d ", intRandomAtaque));
+        System.out.println(String.format("Estado recibido de la presa: %b", presa.getEstaVivo()));
+        if(intRandomAtaque >= 80){
+            Isla.cambiarestadoprersa(presa.getIdSerVivo(), false);
+            System.out.println(String.format("El Lobo ID %d come a la presa Id %d, estado de la presa: %b", this.getIdSerVivo(), presa.getIdSerVivo(), presa.getIdSerVivo()));
+        }
+        if (intRandomAtaque < 80){
+            System.out.println(String.format("EL Lobo peirde su intento de aliemtancion, estado de la presa: %b", presa.getEstaVivo()));
         }
     }
 

@@ -4,6 +4,7 @@ import org.pfmod2.seres.SerVivo;
 import org.pfmod2.seres.animales.carnivoros.Lobo;
 import org.pfmod2.seres.animales.omnivoros.Raton;
 
+import java.rmi.ServerError;
 import java.sql.SQLOutput;
 import java.util.*;
 
@@ -22,18 +23,19 @@ public class Isla {
     }
 
     public static void imprimirSeresVivos(){
-        Random randomPresa = new Random();
-        List<Integer> idSerVivoList = seresvivos.keySet().stream().toList();
-        int intRandompresa = idSerVivoList.get(randomPresa.nextInt(idSerVivoList.size()));
-        System.out.println(intRandompresa);
-        System.out.println(seresvivos.get(intRandompresa));
-        if (seresvivos.get(intRandompresa) instanceof Raton){
-            System.out.println("Fue raton, intentamos comer, estado de la presa: " + seresvivos.get(intRandompresa).getEstaVivo());
-            probarComerLobo(seresvivos.get(intRandompresa));
-        }
-        for(Map.Entry<Integer, SerVivo> raton: seresvivos.entrySet()){
 
-        }
+        HashMap<Integer, SerVivo> cazadores = new HashMap<>();
+
+        seresvivos.forEach((idCazador, cazador) -> {
+            if (cazador instanceof Lobo){
+                seresvivos.forEach((idPresa, presa) ->{
+                    if(presa instanceof Raton && presa.getEstaVivo()){
+                        ((Lobo) cazador).comer(presa);
+                    }
+                });
+            }
+        });
+
     }
 
     public static void probarDesplazarLobo(){
@@ -58,6 +60,10 @@ public class Isla {
                 });
             }
         });
+    }
+
+    public static void cambiarestadoprersa(Integer idPresa, boolean estaVivo){
+        seresvivos.get(idPresa).setEstaVivo(estaVivo);
     }
     public static void imprimirUbicaciones(){
         ubicaciones.forEach((key, value) ->{
