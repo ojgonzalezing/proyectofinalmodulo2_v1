@@ -6,12 +6,14 @@ public abstract class Servivo {
     private double pesoServivo;
     private boolean estaVivo;
     private int idUbicacion;
+    private boolean comestible;
 
-    public Servivo(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion){
+    public Servivo(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean comestible){
         this.setIdServivo(idServivo);
         this.setPesoServivo(pesoServivo);
         this.setEstaVivo(estaVivo);
         this.setIdUbicacion(idUbicacion);
+        this.comestible = comestible;
     }
     public double getPesoServivo(){
         return this.pesoServivo;
@@ -47,5 +49,13 @@ public abstract class Servivo {
 
     public boolean isEstaVivo() {
         return estaVivo;
+    }
+    
+    public void setComestible(boolean comestible){
+        this.comestible = comestible;
+    }
+    
+    public boolean getComestible(){
+        return this.comestible;
     }
 }

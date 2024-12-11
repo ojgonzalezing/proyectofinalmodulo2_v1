@@ -6,14 +6,13 @@ public abstract class Animal extends Servivo {
 
     private double velocidadAnimal;
     private double alimenatacionAnimal;
-    private boolean comestible;
 
-    public Animal(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, double velocidadAnimal, double alimenatacionAnimal, boolean comestible) {
-        super(idServivo, pesoServivo, estaVivo, idUbicacion);
+    public Animal(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean comestible, double velocidadAnimal, double alimenatacionAnimal) {
+        super(idServivo, pesoServivo, estaVivo, idUbicacion, comestible);
         this.velocidadAnimal = velocidadAnimal;
         this.alimenatacionAnimal = alimenatacionAnimal;
-        this.comestible = comestible;
     }
+
 
     public double getVelocidadAnimal() {
         return velocidadAnimal;
@@ -31,11 +30,4 @@ public abstract class Animal extends Servivo {
         this.alimenatacionAnimal = alimenatacionAnimal;
     }
 
-    public boolean isComestible() {
-        return comestible;
-    }
-
-    public void setComestible(boolean comestible) {
-        this.comestible = comestible;
-    }
 }

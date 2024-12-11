@@ -174,11 +174,16 @@ public class Configuracion {
             randomAnimalUbicacion = new Random();
             int intRandomAnimalUbicacion = randomAnimalUbicacion.nextInt(MAXIMO_ANIMAL_UBICACION.get(dataAnimal.getKey())) + MINIMO_ANIMAL_UBICACION.get(dataAnimal.getKey());
             System.out.println(String.format("Se crearan %d del animal %s", intRandomAnimalUbicacion, dataAnimal.getValue()));
-
+            for(int itCreacionAnimal = 0; itCreacionAnimal < intRandomAnimalUbicacion; itCreacionAnimal++){
+                int intRandomIdAnimal = randomAnimalUbicacion.nextInt(Integer.MAX_VALUE);
+                System.out.print(intRandomIdAnimal + ", ");
+            }
+            System.out.println();
             totalAnimalesUbicacion += intRandomAnimalUbicacion;
         }
 
         System.out.println(String.format("Total de animales para esta ubicacion: %d", totalAnimalesUbicacion));
     }
+    private static Servivo crearServivo(int claseServivo, int idServivo){}
 
 }
