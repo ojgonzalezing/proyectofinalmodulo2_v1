@@ -1,7 +1,7 @@
 package org.pfmod2.seres;
 
-public class Planta extends SerVivo{
-    public Planta(int idSerVivo, int idUbicacion, double pesoSerVivo, boolean estaVivo) {
-        super(idSerVivo, idUbicacion, pesoSerVivo, estaVivo);
+public class Planta extends Servivo{
+    public Planta(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion) {
+        super(idServivo, pesoServivo, estaVivo, idUbicacion);
     }
 }

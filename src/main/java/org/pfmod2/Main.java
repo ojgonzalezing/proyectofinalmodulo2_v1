@@ -1,8 +1,5 @@
 package org.pfmod2;
 
-import org.pfmod2.seres.animales.carnivoros.Lobo;
-import org.pfmod2.ubicaciones.Isla;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
