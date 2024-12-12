@@ -1,6 +1,16 @@
 package org.pfmod2;
 
+import org.pfmod2.seres.Planta;
 import org.pfmod2.seres.Servivo;
+import org.pfmod2.seres.animales.carnivoros.Aguila;
+import org.pfmod2.seres.animales.carnivoros.Boa;
+import org.pfmod2.seres.animales.carnivoros.Lobo;
+import org.pfmod2.seres.animales.carnivoros.Oso;
+import org.pfmod2.seres.animales.herbivoros.*;
+import org.pfmod2.seres.animales.omnivoros.Jabali;
+import org.pfmod2.seres.animales.omnivoros.Pato;
+import org.pfmod2.seres.animales.omnivoros.Raton;
+import org.pfmod2.seres.animales.omnivoros.Zorro;
 import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
@@ -169,21 +179,59 @@ public class Configuracion {
 
     public static void incializarIsla(){
 
-        int totalAnimalesUbicacion = 0;
-        for(Map.Entry<Integer, String> dataAnimal:ID_ANIMALES.entrySet()){
-            randomAnimalUbicacion = new Random();
-            int intRandomAnimalUbicacion = randomAnimalUbicacion.nextInt(MAXIMO_ANIMAL_UBICACION.get(dataAnimal.getKey())) + MINIMO_ANIMAL_UBICACION.get(dataAnimal.getKey());
-            System.out.println(String.format("Se crearan %d del animal %s", intRandomAnimalUbicacion, dataAnimal.getValue()));
-            for(int itCreacionAnimal = 0; itCreacionAnimal < intRandomAnimalUbicacion; itCreacionAnimal++){
-                int intRandomIdAnimal = randomAnimalUbicacion.nextInt(Integer.MAX_VALUE);
-                System.out.print(intRandomIdAnimal + ", ");
-            }
-            System.out.println();
-            totalAnimalesUbicacion += intRandomAnimalUbicacion;
-        }
+        /** Inicalizizacion de variables random para numero de ubicaciones */
+        randomUbicaciones = new Random();
+        int intRandomUbicaciones = randomUbicaciones.nextInt(LIMITE_UBICACIONES) + 1;
 
-        System.out.println(String.format("Total de animales para esta ubicacion: %d", totalAnimalesUbicacion));
+        /** Inicializacion Arraylist seresvivos y ubicaciones */
+        ubicaciones = new ArrayList<>();
+        seresvivos = new ArrayList<>();
+
+        /** Iteracion creacion de ubicaciones */
+
+        for(int itUbicaciones=0; itUbicaciones<intRandomUbicaciones; itUbicaciones++){
+            
+            /** Iteracion de creacion y adicion de animal a array seresvivos */
+            for(Map.Entry<Integer, String> dataServivo:ID_ANIMALES.entrySet()){
+                // Generar numero random de SerVivo especifico para la ubicacion
+                randomAnimalUbicacion = new Random();
+                int intRandomServivoUbicacion = randomAnimalUbicacion.nextInt(MAXIMO_ANIMAL_UBICACION.get(dataServivo.getKey())) + MINIMO_ANIMAL_UBICACION.get(dataServivo.getKey());
+                System.out.println(String.format("Se crearan %d del animal %s en ubicacion %d", intRandomServivoUbicacion, dataServivo.getValue(), itUbicaciones));
+                for(int itCreacionAnimal = 0; itCreacionAnimal < intRandomServivoUbicacion; itCreacionAnimal++){
+                    int intRandomIdAnimal = randomAnimalUbicacion.nextInt(Integer.MAX_VALUE);
+                    seresvivos.add(crearServivo(dataServivo.getKey(), intRandomIdAnimal, itUbicaciones));
+                }
+            }
+            ubicaciones.add(new Ubicacion(itUbicaciones, seresvivos));
+        }
+        for(Ubicacion ubicacion:ubicaciones){
+            System.out.println("+++".repeat(40));
+            System.out.println(ubicacion);
+            ubicacion.imprimirSeresVivosUbicacion();
+            System.out.println("+++".repeat(40));
+        }
     }
-    private static Servivo crearServivo(int claseServivo, int idServivo){}
+    private static Servivo crearServivo(int claseServivo, int idServivo, int idUbicacion){
+
+        Servivo servivo = switch (claseServivo){
+            case 1 -> (new Lobo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 2 -> (new Boa(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 3 -> (new Zorro(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 4 -> (new Oso(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 5 -> (new Aguila(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 6 -> (new Caballo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 7 -> (new Ciervo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 8 -> (new Conejo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 9 -> (new Raton(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 10 -> (new Cabra(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 11 -> (new Oveja(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 12 -> (new Jabali(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 13 -> (new Bufalo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 14 -> (new Pato(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            case 15 -> (new Oruga(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));
+            default -> (new Planta(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo)));
+        };
+        return servivo;
+    }
 
 }
