@@ -5,29 +5,29 @@ import org.pfmod2.seres.Servivo;
 public abstract class Animal extends Servivo {
 
     private double velocidadAnimal;
-    private double alimenatacionAnimal;
+    private double alimentacionAnimal;
 
-    public Animal(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean comestible, double velocidadAnimal, double alimenatacionAnimal) {
+    public Animal(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean esComestible, double velocidadAnimal, double alimentacionAnimal) {
         super(idServivo, pesoServivo, estaVivo, idUbicacion, comestible);
         this.velocidadAnimal = velocidadAnimal;
-        this.alimenatacionAnimal = alimenatacionAnimal;
+        this.alimentacionAnimal = alimentacionAnimal;
     }
 
 
-    public double getVelocidadAnimal() {
+    public double obtenerVelocidadAnimal() {
         return velocidadAnimal;
     }
 
-    public void setVelocidadAnimal(double velocidadAnimal) {
+    public void establecerVelocidadAnimal(double velocidadAnimal) {
         this.velocidadAnimal = velocidadAnimal;
     }
 
-    public double getAlimenatacionAnimal() {
-        return alimenatacionAnimal;
+    public double obtenerAlimentacionAnimal() {
+        return alimentacionAnimal;
     }
 
-    public void setAlimenatacionAnimal(double alimenatacionAnimal) {
-        this.alimenatacionAnimal = alimenatacionAnimal;
+    public void establecerAlimentacionAnimal(double alimentacionAnimal) {
+        this.alimentacionAnimal = alimentacionAnimal;
     }
 
 }

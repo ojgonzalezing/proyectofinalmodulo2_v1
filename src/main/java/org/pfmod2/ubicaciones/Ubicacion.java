@@ -2,6 +2,7 @@ package org.pfmod2.ubicaciones;
 
 import org.pfmod2.seres.Servivo;
 import org.pfmod2.seres.animales.Animal;
+import org.pfmod2.seres.animales.carnivoros.Lobo;
 
 import java.util.ArrayList;
 
@@ -19,9 +20,8 @@ public class Ubicacion {
         this.seresvivos.add(servivo);
     }
 
-    public void imprimirSeresVivosUbicacion(){
-        seresvivos.forEach(servivo -> {
-            System.out.println(servivo);
-        });
+    public Servivo obtenerServivo(int idServivo){
+        return (Servivo) this.seresvivos.stream().filter(servivo -> idServivo == servivo.obtenerIdServivo());
     }
+
 }

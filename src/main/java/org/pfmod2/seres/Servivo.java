@@ -6,56 +6,52 @@ public abstract class Servivo {
     private double pesoServivo;
     private boolean estaVivo;
     private int idUbicacion;
-    private boolean comestible;
+    private boolean esComestible;
 
-    public Servivo(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean comestible){
-        this.setIdServivo(idServivo);
-        this.setPesoServivo(pesoServivo);
-        this.setEstaVivo(estaVivo);
-        this.setIdUbicacion(idUbicacion);
-        this.comestible = comestible;
+    public Servivo(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean esComestible){
+        this.establecerIdServivo(idServivo);
+        this.establecerPesoServivo(pesoServivo);
+        this.establecerEstaVivo(estaVivo);
+        this.establecerIdUbicacion(idUbicacion);
+        this.esComestible = esComestible;
     }
-    public double getPesoServivo(){
+    public double obtenerPesoServivo(){
         return this.pesoServivo;
     }
 
-    public void setPesoServivo(double pesoServivo){
+    public void establecerPesoServivo(double pesoServivo){
         this.pesoServivo = pesoServivo;
     }
 
-    public int getIdServivo(){
+    public int obtenerIdServivo(){
         return this.idServivo;
     }
 
-    public void setIdServivo(int idServivo){
+    public void establecerIdServivo(int idServivo){
         this.idServivo = idServivo;
     }
 
-    public boolean getEstaVivo(){
+    public boolean obtenerEstaVivo(){
         return this.estaVivo;
     }
 
-    public void setEstaVivo(boolean estaVivo){
+    public void establecerEstaVivo(boolean estaVivo){
         this.estaVivo = estaVivo;
     }
 
-    public int getIdUbicacion(){
+    public int obtenerIdUbicacion(){
         return this.idUbicacion;
     }
 
-    public void setIdUbicacion(int idUbicacion){
+    public void establecerIdUbicacion(int idUbicacion){
         this.idUbicacion = idUbicacion;
     }
 
-    public boolean isEstaVivo() {
-        return estaVivo;
+    public void establecerEsComestible(boolean esComestible){
+        this.esComestible = esComestible;
     }
     
-    public void setComestible(boolean comestible){
-        this.comestible = comestible;
-    }
-    
-    public boolean getComestible(){
-        return this.comestible;
+    public boolean obtenerEsComestible(){
+        return this.esComestible;
     }
 }

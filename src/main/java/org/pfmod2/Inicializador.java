@@ -11,12 +11,11 @@ import org.pfmod2.seres.animales.omnivoros.Jabali;
 import org.pfmod2.seres.animales.omnivoros.Pato;
 import org.pfmod2.seres.animales.omnivoros.Raton;
 import org.pfmod2.seres.animales.omnivoros.Zorro;
-import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
 
-public class Configuracion {
+public class Inicializacion {
 
     // Constantes
     public static final int LIMITE_UBICACIONES = 16;
@@ -203,12 +202,6 @@ public class Configuracion {
                 }
             }
             ubicaciones.add(new Ubicacion(itUbicaciones, seresvivos));
-        }
-        for(Ubicacion ubicacion:ubicaciones){
-            System.out.println("+++".repeat(40));
-            System.out.println(ubicacion);
-            ubicacion.imprimirSeresVivosUbicacion();
-            System.out.println("+++".repeat(40));
         }
     }
     private static Servivo crearServivo(int claseServivo, int idServivo, int idUbicacion){
