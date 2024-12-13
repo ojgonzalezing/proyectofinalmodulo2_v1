@@ -15,7 +15,7 @@ import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
 
-public class Inicializacion {
+public class Inicializador {
 
     // Constantes
     public static final int LIMITE_UBICACIONES = 16;
