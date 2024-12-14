@@ -24,4 +24,5 @@ public class Ubicacion {
         return (Servivo) this.seresvivos.stream().filter(servivo -> idServivo == servivo.obtenerIdServivo());
     }
 
+
 }

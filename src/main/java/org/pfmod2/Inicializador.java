@@ -11,6 +11,7 @@ import org.pfmod2.seres.animales.omnivoros.Jabali;
 import org.pfmod2.seres.animales.omnivoros.Pato;
 import org.pfmod2.seres.animales.omnivoros.Raton;
 import org.pfmod2.seres.animales.omnivoros.Zorro;
+import org.pfmod2.ubicaciones.Isla;
 import org.pfmod2.ubicaciones.Ubicacion;
 
 import java.util.*;
@@ -176,7 +177,7 @@ public class Inicializador {
         seresvivos = new ArrayList<>();
     }
 
-    public static void incializarIsla(){
+    public static ArrayList<Ubicacion> incializarIsla(){
 
         /** Inicalizizacion de variables random para numero de ubicaciones */
         randomUbicaciones = new Random();
@@ -191,6 +192,10 @@ public class Inicializador {
         for(int itUbicaciones=0; itUbicaciones<intRandomUbicaciones; itUbicaciones++){
             
             /** Iteracion de creacion y adicion de animal a array seresvivos */
+            System.out.println();
+            System.out.println("*".repeat(40));
+            System.out.println("Inicializando ubicacion No.: " + itUbicaciones);
+            System.out.println();
             for(Map.Entry<Integer, String> dataServivo:ID_ANIMALES.entrySet()){
                 // Generar numero random de SerVivo especifico para la ubicacion
                 randomAnimalUbicacion = new Random();
@@ -202,9 +207,17 @@ public class Inicializador {
                 }
             }
             ubicaciones.add(new Ubicacion(itUbicaciones, seresvivos));
+            System.out.println();
+            System.out.println("*".repeat(40));
+            System.out.println();
         }
+         return ubicaciones;
     }
     private static Servivo crearServivo(int claseServivo, int idServivo, int idUbicacion){
+
+        /**
+         * Metodo que devuelve el Servivo requerido de acuerdo con la claseServivo pasada como parametro desde el metodo de InicializarIsla
+         * */
 
         Servivo servivo = switch (claseServivo){
             case 1 -> (new Lobo(idServivo, PESO_ANIMALES.get(claseServivo), true, idUbicacion, SON_COMESTIBLES.get(claseServivo), VELOCIDAD_MAXIMA_ANIMAL.get(claseServivo),  ALIMENTO_ANIMALES.get(claseServivo)));

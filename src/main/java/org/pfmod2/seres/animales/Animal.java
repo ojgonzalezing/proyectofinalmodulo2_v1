@@ -8,7 +8,7 @@ public abstract class Animal extends Servivo {
     private double alimentacionAnimal;
 
     public Animal(int idServivo, double pesoServivo, boolean estaVivo, int idUbicacion, boolean esComestible, double velocidadAnimal, double alimentacionAnimal) {
-        super(idServivo, pesoServivo, estaVivo, idUbicacion, comestible);
+        super(idServivo, pesoServivo, estaVivo, idUbicacion, esComestible);
         this.velocidadAnimal = velocidadAnimal;
         this.alimentacionAnimal = alimentacionAnimal;
     }
