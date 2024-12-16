@@ -7,6 +7,7 @@ import org.pfmod2.ubicaciones.Isla;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Isla.establecerUbicaciones();
+        Isla.desplazarAnimal();
     }
 }
 
