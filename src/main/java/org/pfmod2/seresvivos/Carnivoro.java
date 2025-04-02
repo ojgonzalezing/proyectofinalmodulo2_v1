@@ -1,6 +1,6 @@
 package org.pfmod2.seresvivos;
 
-public class Carnivoro extends SerVivo {
+public class Carnivoro extends SerVivo{
     private int velocidad;
     private double alimentacion;
     private String especie;
