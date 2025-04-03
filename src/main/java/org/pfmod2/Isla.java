@@ -13,6 +13,7 @@ public class Isla {
         this.seresvivos = new ArrayList<>();
     }
 
+
     public static void agregarServivo(SerVivo servivo) {
         seresvivos.add(servivo);
     }
@@ -28,4 +29,6 @@ public class Isla {
     public static String obtenerNombreIsla() {
         return nombreIsla;
     }
+
+
 }
