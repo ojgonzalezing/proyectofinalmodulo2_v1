@@ -23,7 +23,7 @@ public class Isla {
     }
 
     public static SerVivo buscarServivoPorId(int id) {
-        return seresvivos.stream().filter(serVivo -> serVivo.getId() == id).findFirst().orElse(null);
+        return seresvivos.stream().filter(serVivo -> serVivo.ObtenerId() == id).findFirst().orElse(null);
     }
 
     public static String obtenerNombreIsla() {

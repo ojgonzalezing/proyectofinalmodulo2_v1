@@ -1,6 +1,7 @@
 package org.pfmod2;
 
 
+import org.pfmod2.seresvivos.SerVivo;
 import org.pfmod2.utilidades.Especies;
 import org.pfmod2.utilidades.Inicializador;
 
@@ -15,7 +16,8 @@ public class Main {
         Inicializador.crearLocalidades();
         System.out.println("*".repeat(20));
         Inicializador.establecerCantidadPorEspecie();
-        Inicializador.listarCantidadPorEspecie();
+        SerVivo testServivo = Inicializador.crearSerVivo(8,"Caballo");
+        System.out.println(testServivo.getClass());
     }
 }
 

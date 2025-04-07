@@ -3,8 +3,12 @@ package org.pfmod2.seresvivos;
 public class Carnivoro extends SerVivo{
     private int velocidad;
     private double alimentacion;
-    private String especie;
 
+    public Carnivoro(int id, double vida, double peso, int idUbicacion, String especie, int velocidad, double alimentacion) {
+        super(id, vida, peso, idUbicacion, especie);
+        this.velocidad = velocidad;
+        this.alimentacion = alimentacion;
+    }
 
     public int getVelocidad() {
         return velocidad;
@@ -14,19 +18,11 @@ public class Carnivoro extends SerVivo{
         this.velocidad = velocidad;
     }
 
-    public String getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
-
-    public double getAlimentacion() {
+    public double obtenerAlimentacion() {
         return alimentacion;
     }
 
-    public void setAlimentacion(double alimentacion) {
+    public void establecerAlimentacion(double alimentacion) {
         this.alimentacion = alimentacion;
     }
 }

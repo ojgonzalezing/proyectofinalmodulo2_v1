@@ -5,36 +5,53 @@ public abstract class SerVivo {
     private double vida;
     private double peso;
     private int idUbicacion;
+    private String especie;
 
-    public int getId() {
+    public SerVivo(int id, double vida, double peso, int idUbicacion, String especie) {
+        this.id = id;
+        this.vida = vida;
+        this.peso = peso;
+        this.idUbicacion = idUbicacion;
+        this.especie = especie;
+    }
+
+    public int ObtenerId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void establecerId(int id) {
         this.id = id;
     }
 
-    public double getVida() {
+    public double ObtenerVida() {
         return vida;
     }
 
-    public void setVida(double vida) {
+    public void establecerVida(double vida) {
         this.vida = vida;
     }
 
-    public double getPeso() {
+    public double ObtenerPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void establecerPeso(double peso) {
         this.peso = peso;
     }
 
-    public int getIdUbicacion() {
+    public int ObtenerIdUbicacion() {
         return idUbicacion;
     }
 
-    public void setIdUbicacion(int idUbicacion) {
+    public void establecerIdUbicacion(int idUbicacion) {
         this.idUbicacion = idUbicacion;
+    }
+
+    public String ObtenerEspecie() {
+        return especie;
+    }
+
+    public void establecerEspecie(String especie) {
+        this.especie = especie;
     }
 }
