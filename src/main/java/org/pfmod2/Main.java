@@ -11,7 +11,10 @@ import java.util.ArrayList;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-
+        Isla isla = new Isla();
+        System.out.println(String.format("La isla nombre: %s, tiene %d animales",isla.obtenerNombreIsla(), isla.listarSeeresVivos().size()));
+        Isla islab = new Isla();
+        System.out.println(String.format("La isla nombre: %s, tiene %d animales",islab.obtenerNombreIsla(), islab.listarSeeresVivos().size()));
     }
 }
 

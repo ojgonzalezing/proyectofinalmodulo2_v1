@@ -4,14 +4,14 @@ public abstract class SerVivo {
     private int id;
     private double vida;
     private double peso;
-    private int idUbicacion;
+    private int idLocalidad;
     private String especie;
 
-    public SerVivo(int id, double vida, double peso, int idUbicacion, String especie) {
+    public SerVivo(int id, double vida, double peso, int idLocalidad, String especie) {
         this.id = id;
         this.vida = vida;
         this.peso = peso;
-        this.idUbicacion = idUbicacion;
+        this.idLocalidad = idLocalidad;
         this.especie = especie;
     }
 
@@ -39,12 +39,12 @@ public abstract class SerVivo {
         this.peso = peso;
     }
 
-    public int ObtenerIdUbicacion() {
-        return idUbicacion;
+    public int ObteneridLocalidad() {
+        return idLocalidad;
     }
 
-    public void establecerIdUbicacion(int idUbicacion) {
-        this.idUbicacion = idUbicacion;
+    public void estableceridLocalidad(int idLocalidad) {
+        this.idLocalidad = idLocalidad;
     }
 
     public String ObtenerEspecie() {

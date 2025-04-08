@@ -4,8 +4,8 @@ public class Carnivoro extends SerVivo{
     private int velocidad;
     private double alimentacion;
 
-    public Carnivoro(int id, double vida, double peso, int idUbicacion, String especie, int velocidad, double alimentacion) {
-        super(id, vida, peso, idUbicacion, especie);
+    public Carnivoro(int id, double vida, double peso, int idLocalidad, String especie, int velocidad, double alimentacion) {
+        super(id, vida, peso, idLocalidad, especie);
         this.velocidad = velocidad;
         this.alimentacion = alimentacion;
     }
