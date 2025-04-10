@@ -1,6 +1,8 @@
 package org.pfmod2.seresvivos;
 
-public abstract class SerVivo {
+import org.pfmod2.utilidades.Desplazable;
+
+public abstract class SerVivo implements Desplazable {
     private int id;
     private double vida;
     private double peso;

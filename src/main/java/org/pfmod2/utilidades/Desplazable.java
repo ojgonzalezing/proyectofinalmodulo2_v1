@@ -4,5 +4,5 @@ import org.pfmod2.seresvivos.SerVivo;
 
 public interface Desplazable {
 
-    public void desplazarSerVivo(SerVivo serVivo, Integer idLocalidad);
+    public void desplazarSerVivo(Integer idLocalidad);
 }
