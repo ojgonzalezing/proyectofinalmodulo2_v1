@@ -20,16 +20,16 @@ public class Isla{
     }
 
 
-    public void agregarServivo(SerVivo servivo) {
+    public static void agregarServivo(SerVivo servivo) {
         seresvivos.add(servivo);
     }
 
-    public ArrayList<SerVivo> listarSeeresVivos() {
+    public static ArrayList<SerVivo> listarSeeresVivos() {
         return seresvivos;
     }
 
     public SerVivo buscarServivoPorId(int id) {
-        return seresvivos.stream().filter(serVivo -> serVivo.ObtenerId() == id).findFirst().orElse(null);
+        return seresvivos.stream().filter(serVivo -> serVivo.obtenerId() == id).findFirst().orElse(null);
     }
 
     public String obtenerNombreIsla() {

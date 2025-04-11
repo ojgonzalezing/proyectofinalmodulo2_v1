@@ -8,7 +8,12 @@ public class Planta extends SerVivo {
 
     @Override
     public void desplazarSerVivo(Integer idLocalidad) {
-        System.out.println(String.format("Este es un objeto tipo de planta: %s, por lo tanto no se desplaza", this.ObtenerId()));
+        System.out.println(String.format("Este es un objeto tipo de planta: %s, por lo tanto no se desplaza", this.obtenerId()));
+    }
+
+    @Override
+    public void reproducirSerVivo(SerVivo pareja) {
+
     }
 }
 

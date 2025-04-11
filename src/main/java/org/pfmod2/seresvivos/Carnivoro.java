@@ -1,5 +1,8 @@
 package org.pfmod2.seresvivos;
 
+import org.pfmod2.Isla;
+import org.pfmod2.utilidades.Inicializador;
+
 import java.util.Random;
 
 public class Carnivoro extends SerVivo{
@@ -12,11 +15,11 @@ public class Carnivoro extends SerVivo{
         this.alimentacion = alimentacion;
     }
 
-    public int getVelocidad() {
+    public int obtenerVelocidad() {
         return velocidad;
     }
 
-    public void setVelocidad(int velocidad) {
+    public void establecerVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
 
@@ -34,7 +37,7 @@ public class Carnivoro extends SerVivo{
         Random randomDireccion = new Random();
         int intRandomDireccion = randomDireccion.nextInt(0, 2);
         int intDestino = 0;
-        int intOrigen = this.ObteneridLocalidad();
+        int intOrigen = this.obtenerIdLocalidad();
         int intDesplazamiento = randomDireccion.nextInt(0, 5);
         switch (intRandomDireccion) {
             case 0:
@@ -47,8 +50,26 @@ public class Carnivoro extends SerVivo{
         if(intDestino < 0 || intDestino > 15){
             System.out.println(String.format("Ubicacion de destino no puede estar fuera de limites de la isla, no se desplaza SerVivo, se mantiene en ubicacion: %d", intOrigen));
         }else {
-            System.out.println(String.format("Servivo id: %s, en %d se desplaza a -> ubicacion: %d",this.ObtenerId(), intOrigen, intDestino));
+            System.out.println(String.format("Servivo id: %s, en %d se desplaza a -> ubicacion: %d",this.obtenerId(), intOrigen, intDestino));
             this.estableceridLocalidad(intDestino);
         }
+    }
+
+    @Override
+    public void reproducirSerVivo(SerVivo pareja) {
+        Random randomProbabilidadReproduccion = new Random();
+        int intRandomProbabilidadReproduccion = randomProbabilidadReproduccion.nextInt(0, 101);
+        System.out.println("*".repeat(50));
+        if(this.obtenerEspecie().equals(pareja.obtenerEspecie()) && this.obtenerIdLocalidad() == pareja.obtenerIdLocalidad() && intRandomProbabilidadReproduccion > 85){
+            Isla.agregarServivo(Inicializador.crearSerVivo(this.obtenerIdLocalidad(), this.obtenerEspecie()));
+            System.out.println(String.format("Los seres vivos Id %d e id %d, se han reproducido satisfactoriamente",this.obtenerId(), pareja.obtenerId()));
+        }else{
+            System.out.println("Ha fallado el intento de reproduccion");
+        }
+        System.out.println("*".repeat(50));
+
+        /* Pendiente:
+        * Revisar y finalizar metodo de interface reproducirSerVivo, se debe obtener un ArrayList con los seres vivos de la localidad que concuerden con la del objeto que invoca
+        * iniciar con los metodos de interface alimentarSerVivo y finalizarSerVivo*/
     }
 }

@@ -33,7 +33,7 @@ public class Omnivoro extends SerVivo {
         Random randomDireccion = new Random();
         int intRandomDireccion = randomDireccion.nextInt(0, 2);
         int intDestino = 0;
-        int intOrigen = this.ObteneridLocalidad();
+        int intOrigen = this.obtenerIdLocalidad();
         int intDesplazamiento = randomDireccion.nextInt(0, 5);
         switch (intRandomDireccion) {
             case 0:
@@ -46,8 +46,13 @@ public class Omnivoro extends SerVivo {
         if(intDestino < 0 || intDestino > 15){
             System.out.println(String.format("Ubicacion de destino no puede estar fuera de limites de la isla, no se desplaza SerVivo, se mantiene en ubicacion: %d", intOrigen));
         }else {
-            System.out.println(String.format("Servivo id: %s, en %d se desplaza a -> ubicacion: %d",this.ObtenerId(), intOrigen, intDestino));
+            System.out.println(String.format("Servivo id: %s, en %d se desplaza a -> ubicacion: %d",this.obtenerId(), intOrigen, intDestino));
             this.estableceridLocalidad(intDestino);
         }
+    }
+
+    @Override
+    public void reproducirSerVivo(SerVivo pareja) {
+
     }
 }

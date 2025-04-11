@@ -1,8 +1,9 @@
 package org.pfmod2.seresvivos;
 
 import org.pfmod2.utilidades.Desplazable;
+import org.pfmod2.utilidades.Reproducible;
 
-public abstract class SerVivo implements Desplazable {
+public abstract class SerVivo implements Desplazable, Reproducible {
     private int id;
     private double vida;
     private double peso;
@@ -17,7 +18,7 @@ public abstract class SerVivo implements Desplazable {
         this.especie = especie;
     }
 
-    public int ObtenerId() {
+    public int obtenerId() {
         return id;
     }
 
@@ -25,7 +26,7 @@ public abstract class SerVivo implements Desplazable {
         this.id = id;
     }
 
-    public double ObtenerVida() {
+    public double obtenerVida() {
         return vida;
     }
 
@@ -33,7 +34,7 @@ public abstract class SerVivo implements Desplazable {
         this.vida = vida;
     }
 
-    public double ObtenerPeso() {
+    public double obtenerPeso() {
         return peso;
     }
 
@@ -41,7 +42,7 @@ public abstract class SerVivo implements Desplazable {
         this.peso = peso;
     }
 
-    public int ObteneridLocalidad() {
+    public int obtenerIdLocalidad() {
         return idLocalidad;
     }
 
@@ -49,7 +50,7 @@ public abstract class SerVivo implements Desplazable {
         this.idLocalidad = idLocalidad;
     }
 
-    public String ObtenerEspecie() {
+    public String obtenerEspecie() {
         return especie;
     }
 
