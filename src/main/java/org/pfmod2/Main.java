@@ -1,23 +1,14 @@
 package org.pfmod2;
 
 
-import org.pfmod2.seresvivos.SerVivo;
-import org.pfmod2.utilidades.Especies;
-import org.pfmod2.utilidades.Inicializador;
-
-import java.util.ArrayList;
-import java.util.Random;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Isla isla = new Isla();
-        System.out.println(String.format("La isla nombre: %s, tiene %d animales",isla.obtenerNombreIsla(), isla.listarSeeresVivos().size()));
+        System.out.println(String.format("La isla nombre: %s, tiene %d animales",isla.obtenerNombreIsla(), isla.listarSeresVivos().size()));
         Isla islab = new Isla();
-        System.out.println(String.format("La isla nombre: %s, tiene %d animales",islab.obtenerNombreIsla(), islab.listarSeeresVivos().size()));
-
-        isla.listarSeeresVivos().forEach(serVivo -> {serVivo.desplazarSerVivo(new Random(16).nextInt());});
+        System.out.println(String.format("La isla nombre: %s, tiene %d animales",islab.obtenerNombreIsla(), islab.listarSeresVivos().size()));
 
     }
 }

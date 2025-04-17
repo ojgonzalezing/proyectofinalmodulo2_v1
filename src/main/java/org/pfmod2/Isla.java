@@ -1,12 +1,9 @@
 package org.pfmod2;
 
 import org.pfmod2.seresvivos.SerVivo;
-import org.pfmod2.utilidades.Desplazable;
-import org.pfmod2.utilidades.Especies;
 import org.pfmod2.utilidades.Inicializador;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Isla{
 
@@ -24,7 +21,7 @@ public class Isla{
         seresvivos.add(servivo);
     }
 
-    public static ArrayList<SerVivo> listarSeeresVivos() {
+    public static ArrayList<SerVivo> listarSeresVivos() {
         return seresvivos;
     }
 
@@ -35,4 +32,5 @@ public class Isla{
     public String obtenerNombreIsla() {
         return nombreIsla;
     }
+
 }

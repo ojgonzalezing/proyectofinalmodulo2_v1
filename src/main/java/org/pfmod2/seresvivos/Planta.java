@@ -12,7 +12,7 @@ public class Planta extends SerVivo {
     }
 
     @Override
-    public void reproducirSerVivo(SerVivo pareja) {
+    public void reproducirSerVivo() {
 
     }
 }

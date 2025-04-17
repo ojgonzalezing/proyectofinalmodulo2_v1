@@ -52,7 +52,7 @@ public class Omnivoro extends SerVivo {
     }
 
     @Override
-    public void reproducirSerVivo(SerVivo pareja) {
+    public void reproducirSerVivo() {
 
     }
 }
