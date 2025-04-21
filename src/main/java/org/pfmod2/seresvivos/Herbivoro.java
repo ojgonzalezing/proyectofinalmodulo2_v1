@@ -56,4 +56,9 @@ public class Herbivoro extends SerVivo {
     public void reproducirSerVivo() {
 
     }
+
+    @Override
+    public void alimentarSerVivo() {
+
+    }
 }

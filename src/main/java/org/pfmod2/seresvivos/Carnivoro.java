@@ -2,10 +2,14 @@ package org.pfmod2.seresvivos;
 
 import org.pfmod2.Isla;
 import org.pfmod2.utilidades.Especies;
-import org.pfmod2.utilidades.Inicializador;
+import org.pfmod2.utilidades.Probabilidades;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class Carnivoro extends SerVivo{
     private int velocidad;
@@ -67,7 +71,7 @@ public class Carnivoro extends SerVivo{
         ArrayList<SerVivo> seresVivosLocal = new ArrayList<>();
         System.out.println("*".repeat(50));
         if(intRandomProbabilidad > 85){
-            seresVivosLocal.add(Inicializador.crearSerVivo(this.obtenerIdLocalidad(),this.obtenerEspecie()));
+            seresVivosLocal.add(Inicializador.crearSerVivo(this.obtenerIdLocalidad(),this.obtenerEspecie().toUpperCase()));
             System.out.println("Intento de reproduccion de SerVivo exitoso");
         }else{
             System.out.println("Ha fallado el intento de reproduccion");
@@ -84,5 +88,179 @@ public class Carnivoro extends SerVivo{
         * Restricciones a considerar para reproducirse: misma localidad, misma especie, probabilidad por encima del 85%,cupo de especie disponible en localidad
         * No se considero para el ejercicio el genero de la especie, sin embargo seria interesante agregarlo, asi se consideraría un aspecto natural
         * iniciar con los metodos de interface alimentarSerVivo y finalizarSerVivo*/
+    }
+
+    @Override
+    public void alimentarSerVivo() {
+        Random randomAlimentar = new Random();
+        int intRandomAlimentar = randomAlimentar.nextInt(0, 101);
+        ArrayList<SerVivo> seresVivosUbicacion = new ArrayList<>();
+        for(SerVivo presa:Isla.listarSeresVivos()){
+            if (presa.obtenerIdLocalidad() == this.obtenerIdLocalidad() && presa.getClass() != this.getClass()){
+                seresVivosUbicacion.add(presa);
+            }
+        }
+        int intIdPresa = seresVivosUbicacion.get(randomAlimentar.nextInt(0, seresVivosUbicacion.size())).obtenerId();
+        String strEspecie = seresVivosUbicacion.stream().filter(serVivo -> serVivo.obtenerId() == intIdPresa).findFirst().get().obtenerEspecie();
+        switch(seresVivosUbicacion.stream().filter(presaLocal -> presaLocal.obtenerId() ==  intIdPresa).findFirst().get().obtenerEspecie()){
+            case "Lobo":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsLobo()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Boa":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsBoa()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Zorro":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsZorro()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Oso":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsOso()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Aguila":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsAguila()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Caballo":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsCaballo()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Ciervo":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsCiervo()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Conejo":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsConejo()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Raton":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsRaton()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Cabra":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsCabra()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Oveja":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsOveja()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Jabali":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsJabali()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Bufalo":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsBufalo()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Pato":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsPato()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            case "Oruga":
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsOruga()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+
+            default:
+                if(intRandomAlimentar >= Probabilidades.valueOf(this.obtenerEspecie().toUpperCase()).obtenerVsPlanta()){
+                    System.out.println(String.format("Intento de alimentacion exitoso con %d", intRandomAlimentar));
+                }else {
+                    System.out.println(String.format("Intento de alimentacion fallido con %d", intRandomAlimentar));
+                }
+                break;
+        }
+        /**
+         * Este metodo fue un intento de usar reflexion para no tener que utilizar switches consecutivos, el metodo implementado para solucionar el problema
+         * es un prototipo, puedo seguir experimentando posteriormente.
+         *
+         * Para solucionar el problema es necesario acceder al metodo adecuado de la enumeracion, no del parametro como tal
+         * try {
+            Class<?> enumProbabilidades = Class.forName("org.pfmod2.utilidades.Probabilidades");
+            Method[] enumProbabilidadesMethods = enumProbabilidades.getDeclaredMethods();
+            Method valueOfMethod = Arrays.stream(enumProbabilidadesMethods)
+                    .filter(method -> method.getName().equals("valueOf"))
+                    .findFirst()
+                    .orElseThrow(() -> new NoSuchMethodException("valueOf method not found"));
+
+            Method obtenerVrMethod = Arrays.stream(enumProbabilidadesMethods)
+                    .filter(method -> method.getName().equals("obtenerVs" + strEspecie))
+                    .findFirst()
+                    .orElseThrow(() -> new NoSuchMethodException("obtenerVr method not found"));
+
+            Object strEspecieBase = valueOfMethod.invoke(null, strEspecie.toUpperCase());
+            Object strProbabilidad = valueOfMethod.invoke(null, this.obtenerEspecie().toUpperCase(), obtenerVrMethod.invoke(this,null));
+
+            System.out.println(String.format("Probabilidad de alimentacion de %s es: %s", strEspecie, strProbabilidad));
+
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException | java.lang.reflect.InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }*/
     }
 }

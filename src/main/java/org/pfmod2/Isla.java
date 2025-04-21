@@ -25,10 +25,14 @@ public class Isla{
         return seresvivos;
     }
 
-    public SerVivo buscarServivoPorId(int id) {
+    public static SerVivo buscarServivoPorId(int id) {
         return seresvivos.stream().filter(serVivo -> serVivo.obtenerId() == id).findFirst().orElse(null);
     }
 
+    public static void imprimitAnimalesUbicaciones(){
+        System.out.println(seresvivos.getClass());
+        seresvivos.forEach(serVivo -> serVivo.alimentarSerVivo());
+    }
     public String obtenerNombreIsla() {
         return nombreIsla;
     }

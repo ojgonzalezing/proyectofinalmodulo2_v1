@@ -7,9 +7,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Isla isla = new Isla();
         System.out.println(String.format("La isla nombre: %s, tiene %d animales",isla.obtenerNombreIsla(), isla.listarSeresVivos().size()));
-        Isla islab = new Isla();
-        System.out.println(String.format("La isla nombre: %s, tiene %d animales",islab.obtenerNombreIsla(), islab.listarSeresVivos().size()));
-
+        Isla.imprimitAnimalesUbicaciones();
     }
 }
 

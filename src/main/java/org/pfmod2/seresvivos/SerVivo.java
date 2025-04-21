@@ -1,9 +1,10 @@
 package org.pfmod2.seresvivos;
 
+import org.pfmod2.utilidades.Comestible;
 import org.pfmod2.utilidades.Desplazable;
 import org.pfmod2.utilidades.Reproducible;
 
-public abstract class SerVivo implements Desplazable, Reproducible {
+public abstract class SerVivo implements Desplazable, Reproducible, Comestible {
     private int id;
     private double vida;
     private double peso;

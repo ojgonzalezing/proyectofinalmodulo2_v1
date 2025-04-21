@@ -1,23 +1,24 @@
 package org.pfmod2.utilidades;
 
 public enum Probabilidades {
-    LOBO(0,0,0,0,0,10,15,60,80,60,70,15,10,40,0,0),
-    BOA(0,0,15,0,0,0,0,20,40,0,0,0,0,10,0,0),
-    ZORRO(0,0,0,0,0,0,0,70,90,0,0,0,0,60,40,0),
-    OSO(0,80,0,0,0,40,80,80,90,70,70,50,20,10,0,0),
-    AGUILA(0,0,10,0,0,0,0,90,90,0,0,0,0,80,0,0),
-    CABALLO(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    CIERVO(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    CONEJO(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    RATON(0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,100),
-    CABRA(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    OVEJA(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    JABALI(0,0,0,0,0,0,0,0,50,0,0,0,0,0,90,100),
-    BUFALO(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    PATO(0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,100),
-    ORUGA(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
-    PLANTA(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    LOBO("Lobo",0,0,0,0,0,10,15,60,80,60,70,15,10,40,0,0),
+    BOA("Boa",0,0,15,0,0,0,0,20,40,0,0,0,0,10,0,0),
+    ZORRO("Zorro",0,0,0,0,0,0,0,70,90,0,0,0,0,60,40,0),
+    OSO("Oso",0,80,0,0,0,40,80,80,90,70,70,50,20,10,0,0),
+    AGUILA("Aguila", 0,0,10,0,0,0,0,90,90,0,0,0,0,80,0,0),
+    CABALLO("Caballo",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    CIERVO("Ciervo",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    CONEJO("Conejo",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    RATON("Raton",0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,100),
+    CABRA("Cabra",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    OVEJA("Oveja",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    JABALI("Jabali",0,0,0,0,0,0,0,0,50,0,0,0,0,0,90,100),
+    BUFALO("Bufalo",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    PATO("Pato",0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,100),
+    ORUGA("Oruga",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100),
+    PLANTA("Planta",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
+    private String especie;
     private int vsLobo;
     private int vsBoa;
     private int vsZorro;
@@ -35,7 +36,7 @@ public enum Probabilidades {
     private int vsOruga;
     private int vsPlanta;
 
-    Probabilidades(int vsLobo,	int vsBoa,	int vsZorro,	int vsOso,	int vsAguila,	int vsCaballo,	int vsCiervo,	int vsConejo,	int vsRaton,	int vsCabra,	int vsOveja,	int vsJabali,	int vsBufalo,	int vsPato,	int vsOruga,	int vsPlanta){
+    Probabilidades(String especie, int vsLobo,	int vsBoa,	int vsZorro,	int vsOso,	int vsAguila,	int vsCaballo,	int vsCiervo,	int vsConejo,	int vsRaton,	int vsCabra,	int vsOveja,	int vsJabali,	int vsBufalo,	int vsPato,	int vsOruga,	int vsPlanta){
         this.vsLobo=vsLobo;
         this.vsBoa=vsBoa;
         this.vsZorro=vsZorro;
@@ -54,6 +55,9 @@ public enum Probabilidades {
         this.vsPlanta=vsPlanta;
     }
 
+    public String obtenerEspecie() {
+        return especie;
+    }
     public int obtenerVsLobo() {
         return vsLobo;
     }

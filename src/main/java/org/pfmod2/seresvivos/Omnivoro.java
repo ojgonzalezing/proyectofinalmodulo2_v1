@@ -55,4 +55,9 @@ public class Omnivoro extends SerVivo {
     public void reproducirSerVivo() {
 
     }
+
+    @Override
+    public void alimentarSerVivo() {
+
+    }
 }

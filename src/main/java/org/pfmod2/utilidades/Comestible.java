@@ -4,5 +4,5 @@ import org.pfmod2.seresvivos.SerVivo;
 
 public interface Comestible {
 
-    public void alimentarSerVivo(SerVivo presa);
+    public void alimentarSerVivo();
 }

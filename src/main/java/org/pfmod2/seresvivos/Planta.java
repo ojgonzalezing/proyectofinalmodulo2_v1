@@ -15,5 +15,10 @@ public class Planta extends SerVivo {
     public void reproducirSerVivo() {
 
     }
+
+    @Override
+    public void alimentarSerVivo() {
+
+    }
 }
 
