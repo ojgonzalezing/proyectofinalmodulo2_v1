@@ -1,6 +1,6 @@
-package utilidades;
+package org.pfmod2.utilidades;
 
-import seresvivos.SerVivo;
+import org.pfmod2.seresvivos.SerVivo;
 
 public interface IComestible {
     public void comer(SerVivo presa);

@@ -1,4 +1,4 @@
-package seresvivos;
+package org.pfmod2.seresvivos;
 
 /*
 * Clase abstracta Animal de la que extenderan extenderan cada una de las especies: Carnivoros, Herbivoros y Omnivoros

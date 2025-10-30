@@ -1,4 +1,4 @@
-package seresvivos;
+package org.pfmod2.seresvivos;
 
 /**
  * Clase abstracta que contiene los atributos principales de los seres vivos

@@ -1,9 +1,9 @@
-package utilidades;
+package org.pfmod2.utilidades;
 
-import seresvivos.Animal;
-import seresvivos.Herbivoro;
-import seresvivos.Planta;
-import seresvivos.SerVivo;
+import org.pfmod2.seresvivos.Animal;
+import org.pfmod2.seresvivos.Herbivoro;
+import org.pfmod2.seresvivos.Planta;
+import org.pfmod2.seresvivos.SerVivo;
 
 import java.util.ArrayList;
 import java.util.List;
