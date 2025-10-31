@@ -4,7 +4,7 @@ import org.pfmod2.seresvivos.SerVivo;
 
 public class Utilidades {
 
-    public static SerVivo getPresa(Contenedor contenedor){
+    public static SerVivo crearServivo(){
         return null;
     }
 }
